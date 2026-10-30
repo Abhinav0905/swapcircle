@@ -12,9 +12,9 @@ Target the existing project **1519439**, reported in this build session as **Unt
 
 **Built with:** TypeScript, React, Vinext, Qloo, Cloudflare Workers, Cloudflare D1, Drizzle, Model Context Protocol
 
-**Demo URL:** Publication and anonymous access verification pending.
+**Demo URL:** https://swapcircle-books.abhinav-0905.chatgpt.site (private; public release approval pending).
 
-**Source URL:** Public repository publication pending.
+**Source URL:** https://github.com/Abhinav0905/swapcircle (private; public release approval pending).
 
 **Video:** Optional under the current event requirements. None supplied by this draft.
 
@@ -52,13 +52,13 @@ The application agent follows a bounded workflow. It does not call a language mo
 
 At the current local checkpoint, 78 automated tests pass. The solver was compared with a separate oracle on 120 seeded graphs and their repairs. Other tests cover missing evidence, duplicate physical copies, withdrawals, stale writes, exact-circle approvals, access rules and provider failures.
 
-A separate HTTP/D1 smoke passed 107 assertions on each of two local targets: the development server and the built production Worker. It exercised member capabilities, concurrent writes, MCP previews and the exchange/approval/withdrawal/repair sequence. Both runs used fixture rankings and made no live Qloo calls. TypeScript checks and the production build also passed. A Node 22 GitHub Actions workflow is prepared; no CI run has been recorded yet.
+A separate HTTP/D1 smoke passed 107 assertions on each of three targets: the development server, the local built production Worker and the hosted Cloudflare Worker with D1. It exercised member capabilities, concurrent writes, MCP previews and the exchange/approval/withdrawal/repair sequence. These runs used fixture rankings and made no live Qloo calls. TypeScript checks and the production build also passed. The Node 22 GitHub Actions workflow also passed its tests, build and HTTP/D1 smoke. The verification record preserves an earlier failed smoke attempt and the passing diagnostic rerun.
 
 The sample demonstrates 2 matched readers, then 6 after Noor's reading choice, back to 2 after her withdrawal and 5 after Leo answers the repair question. These are authored data and simulated responses. They prove the workflow's behavior on that scenario, not Qloo ranking quality or real reader satisfaction.
 
 ### Current limits
 
-Live Qloo access and public-host integration have not yet been verified at this draft checkpoint. Public demo and source links must be added after publication. The sample remains clearly labeled.
+Live Qloo access has not yet been verified at this draft checkpoint. The hosted app and source repository are private; anonymous judge access must be enabled and checked before submission. The sample remains clearly labeled.
 
 Invitation links grant access, not verified identity. The host receives those links to distribute and could retain them. Members supply book condition, ownership and availability. The application does not ship books, take payment or confirm a physical handoff.
 
@@ -78,3 +78,10 @@ Kumar Abhinav directed the project. Codex agents assisted with research, impleme
 - Recheck the test count after the final source change.
 - Keep sample counts labeled as authored behavior.
 - Verify the existing Devpost project's saved fields and final submission state after any authorized update.
+
+## Prepared graphics
+
+- `docs/assets/swapcircle-cover.png`: 1200 × 800 original cover graphic.
+- `docs/assets/swapcircle-sample-flow.png`: 1600 × 900 explanation of the authored sample.
+
+These are graphics, not application screenshots. The sample diagram labels authored rankings and simulated responses.

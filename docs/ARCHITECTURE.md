@@ -118,7 +118,7 @@ MCP exposes `inspect_circle`, `suggest_next_question`, `explain_match` and `plan
 
 **Verification boundary.** The exchange tests compare the solver with a separate subset-and-permutation oracle on 120 seeded graphs and their repairs. Storage tests use an in-memory repository with revision comparison to check role enforcement, stale writes, invitation hashes, deletion and invalidation. These tests establish code behavior. They do not establish a successful deployed D1 transaction, browser accessibility or live Qloo quality; those need their own recorded checks.
 
-On October 30, 2026, TypeScript checks, the full 78-test suite and the production build passed. Separate runs of `scripts/smoke.mjs` passed 107 assertions each against the development server and the built Worker, with local D1 storage. They checked a real concurrent revision race, separate capabilities and the repair sequence. Both used fixture rankings. Public-host integration and a genuine Qloo run remain pending. See [verification status](VERIFICATION.md).
+On October 30, 2026, TypeScript checks, the full 78-test suite and the production build passed. Separate runs of `scripts/smoke.mjs` passed 107 assertions each against the development server and the built Worker, with local D1 storage. They checked a real concurrent revision race, separate capabilities and the repair sequence. Both used fixture rankings. The same 107 assertions also passed against the privately hosted Worker and Cloudflare D1. Public access and a genuine Qloo run remain pending. See [verification status](VERIFICATION.md).
 
 Run the focused suites with:
 

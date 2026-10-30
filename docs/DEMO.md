@@ -71,3 +71,9 @@ npx tsx --test tests/storage.test.ts
 Look for the test named `authored demo reproduces 2 to 6 matches and a consent-safe 5-person repair`. The suite also checks stale revisions, concurrent writes, exact approval fingerprints and changed-book invalidation. It uses test storage and does not call Qloo.
 
 For a live demonstration, configure a valid organizer-issued key, create a new live room, resolve the offered books and cultural favorites, then fetch fresh rankings. Preserve the returned source labels and missing results. Use the actual returned graph, even if it yields fewer exchanges than this sample. A configured key alone does not establish live access, and this sample does not establish that real readers will enjoy their books or agree to trade.
+
+## Illustrated walkthrough
+
+![Authored sample flow, with 2, 6, 2 and 5 matched readers.](assets/swapcircle-sample-flow.png)
+
+This is an explanatory graphic, not an application screenshot or live Qloo result.
