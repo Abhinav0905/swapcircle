@@ -73,7 +73,8 @@ async function read(circle, token = circle.hostToken) {
 
 async function act(circle, state, action, token = circle.hostToken) {
   const response = await call(`/api/rooms/${circle.room.id}`, { method: "POST", token, body: { revision: state.revision, action } });
-  check(response.status === 200, "An authorized room action failed.");
+  const code = /^[a-z_]{1,48}$/.test(response.data?.error?.code ?? "") ? response.data.error.code : "unknown";
+  check(response.status === 200, `Authorized ${action.type} action failed (${response.status}, ${code}).`);
   check(response.data.room.revision === state.revision + 1, "A state change did not increment the revision exactly once.");
   return response.data.room;
 }
