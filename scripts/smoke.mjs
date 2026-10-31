@@ -39,6 +39,10 @@ function summarizeWorkerLog(raw) {
     ["Shutting down local server", "stopping"],
     ["D1_ERROR", "d1-error"],
     ["SQLITE_BUSY", "sqlite-busy"],
+    ["The script will never generate a response", "unresolved-response"],
+    ["Can't perform I/O on behalf of a different request", "request-context"],
+    ["Network connection lost", "connection-lost"],
+    ["The request was canceled", "canceled-request"],
   ];
   const lines = raw.split(/\r?\n/);
   for (const [index, rawLine] of lines.entries()) {
@@ -46,6 +50,8 @@ function summarizeWorkerLog(raw) {
     for (const [match, label] of lifecycle) {
       if (line.includes(match)) summary.push(`line ${index + 1}: worker ${label}`);
     }
+    const proxy = /SWAPCIRCLE_PROXY_FAILURE (unresolved-response|request-context|request-body|connection-lost|canceled|resource-limit|timeout|fetch-failed|other) (Error|TypeError|AbortError|TimeoutError|DOMException|OtherError) same-upstream=(true|false)\b/.exec(line);
+    if (proxy) summary.push(`line ${index + 1}: proxy ${proxy[1]} ${proxy[2]} same-upstream=${proxy[3]}`);
     const request = /\b(GET|HEAD|POST|DELETE|OPTIONS) (\/[^\s]*) ([1-5]\d{2})\b/.exec(line);
     if (request) {
       const path = request[2].split(/[?#]/, 1)[0];
