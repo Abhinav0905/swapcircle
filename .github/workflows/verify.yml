@@ -4,6 +4,11 @@ on:
   push:
   pull_request:
   workflow_dispatch:
+    inputs:
+      origin_probe:
+        description: Run eight local transport cases instead of the normal smoke
+        type: boolean
+        default: false
 
 permissions:
   contents: read
@@ -31,7 +36,11 @@ jobs:
       - name: Install locked dependencies
         run: npm run install:ci
       - name: Check types, tests and build
+        if: ${{ !inputs.origin_probe }}
         run: npm run verify
+      - name: Build for the targeted transport probe
+        if: ${{ inputs.origin_probe }}
+        run: npm run build
       - name: Apply local D1 migration
         run: node --import ./scripts/sites-env.mjs ./node_modules/wrangler/bin/wrangler.js d1 execute DB --local --config dist/server/wrangler.json --persist-to .wrangler/state --file drizzle/0000_noisy_sabretooth.sql
       - name: Classify local proxy failures without logging request data
@@ -68,9 +77,13 @@ jobs:
           npm start -- --port 8787 > .sites-runtime/ci-worker.log 2>&1 &
           worker_pid=$!
           trap 'kill "$worker_pid" 2>/dev/null || true' EXIT
-          npm run smoke -- http://127.0.0.1:8787 --worker-log=.sites-runtime/ci-worker.log
+          if [ "${{ inputs.origin_probe }}" = "true" ]; then
+            npm run smoke -- http://127.0.0.1:8787 --worker-log=.sites-runtime/ci-worker.log --origin-probe
+          else
+            npm run smoke -- http://127.0.0.1:8787 --worker-log=.sites-runtime/ci-worker.log
+          fi
       - name: Retain safe Worker diagnostics on failure
-        if: failure()
+        if: failure() || inputs.origin_probe
         uses: actions/upload-artifact@v7
         with:
           name: worker-diagnostics-${{ github.run_id }}-${{ github.run_attempt }}

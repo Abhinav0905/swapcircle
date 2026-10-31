@@ -10,6 +10,7 @@ if (!["http:", "https:"].includes(base.protocol) || base.username || base.passwo
 }
 const origin = base.origin;
 const workerLog = process.argv.find((argument) => argument.startsWith("--worker-log="))?.slice("--worker-log=".length);
+const originProbe = process.argv.includes("--origin-probe");
 const created = [];
 let checks = 0;
 class SmokeFailure extends Error {}
@@ -164,6 +165,42 @@ async function mcp(body, token) {
   });
 }
 
+/** One optional local-Worker diagnostic: each new room receives exactly one rank. */
+async function probeOriginRejection() {
+  if (!["127.0.0.1", "localhost", "[::1]"].includes(base.hostname)) {
+    throw new SmokeFailure("The transport probe is restricted to a local Worker.");
+  }
+  await ready();
+  let rankFailures = 0;
+  for (let index = 0; index < 8; index += 1) {
+    const circle = await createDemo();
+    const path = `/api/rooms/${circle.room.id}`;
+    const closeRejectedConnection = index >= 4;
+    const rejected = await call("/api/rooms", {
+      method: "POST", body: { mode: "demo" },
+      headers: { Origin: "https://another.example", ...(closeRejectedConnection ? { Connection: "close" } : {}) },
+    });
+    check(rejected.status === 403, "The transport probe's foreign-origin request was not rejected.");
+    const ranked = await call(path, { method: "POST", token: circle.hostToken,
+      body: { revision: 0, action: { type: "rank" } },
+    });
+    const observed = await call(path, { token: circle.hostToken });
+    check(observed.status === 200 && Number.isInteger(observed.data?.room?.revision), "The transport probe could not inspect the persisted revision.");
+    const revision = observed.data.room.revision;
+    // A failed HTTP response can follow a committed write. Record its revision,
+    // then delete the disposable room. Never repeat the rank to find out.
+    console.log(`PROBE case=${index + 1} rejected-connection=${closeRejectedConnection ? "close" : "default"} origin=${rejected.status} rank=(${responseDetails(ranked)}) persisted-revision=${revision}`);
+    if (ranked.status !== 200) rankFailures += 1;
+    else check(revision === 1, "A successful probe rank did not persist revision one.");
+    const removed = await call(path, { method: "DELETE", token: circle.hostToken });
+    const missing = await call(path, { token: circle.hostToken });
+    check(removed.status === 200 && missing.status === 404, "The transport probe could not remove its disposable circle.");
+    created.splice(created.indexOf(circle), 1);
+  }
+  check(rankFailures === 0, `${rankFailures} of eight single-attempt ranks failed. Their persisted revisions are recorded above.`);
+  console.log("PASS: Eight bounded transport cases. Each rank was sent once; all disposable circles were deleted.");
+}
+
 async function run() {
   const status = await ready();
   console.log("HTTP ready. Starting disposable demo-circle checks.");
@@ -262,7 +299,7 @@ async function run() {
 }
 
 let failed = false;
-try { await run(); }
+try { if (originProbe) await probeOriginRejection(); else await run(); }
 catch (error) {
   failed = true;
   console.error(error instanceof SmokeFailure ? `FAIL: ${error.message}` : "FAIL: Unexpected smoke-script error. Sensitive values were not logged.");
@@ -281,6 +318,6 @@ catch (error) {
     }
   }
   console.log(`Cleanup checked for ${created.length} disposable demo circles. No capabilities were written to disk.`);
-  if (failed) await captureWorkerDiagnostics();
+  if (failed || originProbe) await captureWorkerDiagnostics();
 }
 if (failed) process.exitCode = 1;
