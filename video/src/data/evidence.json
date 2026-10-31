@@ -1,0 +1,950 @@
+{
+  "schemaVersion": 1,
+  "capturedAt": "2026-10-31T01:15:30.926Z",
+  "publicBase": "https://swapcircle-books.abhinav-0905.chatgpt.site",
+  "source": "fixture",
+  "mode": "demo",
+  "captureMethod": "Responses from the public application's HTTP API",
+  "presentation": "Illustrated walkthrough based on captured application state; not a browser recording",
+  "fictionalParticipants": true,
+  "readingChoicesSimulated": true,
+  "approvalsSimulated": true,
+  "liveQlooVerifiedByThisCapture": false,
+  "liveQlooCallsRequested": false,
+  "qlooConfiguredAtCapture": false,
+  "evidenceBoundary": "Authored taste rankings and simulated responses prove the sample exchange behavior. They do not establish live Qloo ranking quality, real participant consent or a completed physical handoff.",
+  "members": [
+    {
+      "id": "maya",
+      "name": "Maya",
+      "color": "#E4A087",
+      "book": {
+        "id": "book-maya",
+        "title": "The Left Hand of Darkness",
+        "author": "Ursula K. Le Guin",
+        "color": "#7E3544",
+        "condition": "Paperback · good condition"
+      },
+      "culturalSeeds": [
+        {
+          "name": "Arrival",
+          "type": "movie"
+        },
+        {
+          "name": "Björk",
+          "type": "artist"
+        }
+      ]
+    },
+    {
+      "id": "leo",
+      "name": "Leo",
+      "color": "#A9BD9B",
+      "book": {
+        "id": "book-leo",
+        "title": "The Overstory",
+        "author": "Richard Powers",
+        "color": "#305E48",
+        "condition": "Paperback · good condition"
+      },
+      "culturalSeeds": [
+        {
+          "name": "Princess Mononoke",
+          "type": "movie"
+        },
+        {
+          "name": "Bon Iver",
+          "type": "artist"
+        }
+      ]
+    },
+    {
+      "id": "noor",
+      "name": "Noor",
+      "color": "#AAB9D4",
+      "book": {
+        "id": "book-noor",
+        "title": "Piranesi",
+        "author": "Susanna Clarke",
+        "color": "#567D88",
+        "condition": "Paperback · good condition"
+      },
+      "culturalSeeds": [
+        {
+          "name": "Amélie",
+          "type": "movie"
+        },
+        {
+          "name": "Ólafur Arnalds",
+          "type": "artist"
+        }
+      ]
+    },
+    {
+      "id": "jules",
+      "name": "Jules",
+      "color": "#E4C885",
+      "book": {
+        "id": "book-jules",
+        "title": "A Psalm for the Wild-Built",
+        "author": "Becky Chambers",
+        "color": "#B17D38",
+        "condition": "Paperback · good condition"
+      },
+      "culturalSeeds": [
+        {
+          "name": "Kiki's Delivery Service",
+          "type": "movie"
+        },
+        {
+          "name": "Khruangbin",
+          "type": "artist"
+        }
+      ]
+    },
+    {
+      "id": "iris",
+      "name": "Iris",
+      "color": "#C8B3D2",
+      "book": {
+        "id": "book-iris",
+        "title": "Braiding Sweetgrass",
+        "author": "Robin Wall Kimmerer",
+        "color": "#6E5B79",
+        "condition": "Paperback · good condition"
+      },
+      "culturalSeeds": [
+        {
+          "name": "My Neighbor Totoro",
+          "type": "movie"
+        },
+        {
+          "name": "The Hidden Life of Trees",
+          "type": "book"
+        }
+      ]
+    },
+    {
+      "id": "sam",
+      "name": "Sam",
+      "color": "#D6B5A1",
+      "book": {
+        "id": "book-sam",
+        "title": "The Dispossessed",
+        "author": "Ursula K. Le Guin",
+        "color": "#BA6048",
+        "condition": "Paperback · good condition"
+      },
+      "culturalSeeds": [
+        {
+          "name": "Blade Runner",
+          "type": "movie"
+        },
+        {
+          "name": "Radiohead",
+          "type": "artist"
+        }
+      ]
+    }
+  ],
+  "stages": [
+    {
+      "id": "initial_rank",
+      "label": "Two readers can swap directly",
+      "observedAt": "2026-10-31T01:15:32.482Z",
+      "revision": 1,
+      "source": "fixture",
+      "persistedReadVerified": true,
+      "matchedCount": 2,
+      "directSwapCount": 2,
+      "availableMemberIds": [
+        "maya",
+        "leo",
+        "noor",
+        "jules",
+        "iris",
+        "sam"
+      ],
+      "availableMembers": [
+        "Maya",
+        "Leo",
+        "Noor",
+        "Jules",
+        "Iris",
+        "Sam"
+      ],
+      "matchedMemberIds": [
+        "iris",
+        "sam"
+      ],
+      "matchedMembers": [
+        "Iris",
+        "Sam"
+      ],
+      "unmatchedMemberIds": [
+        "jules",
+        "leo",
+        "maya",
+        "noor"
+      ],
+      "unmatchedMembers": [
+        "Jules",
+        "Leo",
+        "Maya",
+        "Noor"
+      ],
+      "approvalCount": 0,
+      "approvedMemberIds": [],
+      "approvedMembers": [],
+      "approvalsSimulated": true,
+      "cycles": [
+        {
+          "memberIds": [
+            "iris",
+            "sam"
+          ],
+          "members": [
+            "Iris",
+            "Sam"
+          ],
+          "size": 2,
+          "fullyApproved": false,
+          "approvedMemberIds": [],
+          "approvedMembers": [],
+          "trades": [
+            {
+              "giverId": "iris",
+              "giver": "Iris",
+              "recipientId": "sam",
+              "recipient": "Sam",
+              "bookId": "book-iris",
+              "book": "Braiding Sweetgrass",
+              "author": "Robin Wall Kimmerer",
+              "recipientRank": 1,
+              "source": "fixture"
+            },
+            {
+              "giverId": "sam",
+              "giver": "Sam",
+              "recipientId": "iris",
+              "recipient": "Iris",
+              "bookId": "book-sam",
+              "book": "The Dispossessed",
+              "author": "Ursula K. Le Guin",
+              "recipientRank": 1,
+              "source": "fixture"
+            }
+          ]
+        }
+      ],
+      "question": {
+        "memberId": "noor",
+        "member": "Noor",
+        "bookId": "book-jules",
+        "book": "A Psalm for the Wild-Built",
+        "offeredBy": "Jules",
+        "rank": 2,
+        "connectsMembers": [
+          "Jules",
+          "Leo",
+          "Maya",
+          "Noor"
+        ],
+        "reason": "If you want to read this book, a 4-person circle becomes possible. Everyone still approves their exact trade.",
+        "source": "fixture"
+      }
+    },
+    {
+      "id": "noor_accepts",
+      "label": "Noor's simulated yes completes a four-person circle",
+      "observedAt": "2026-10-31T01:15:33.581Z",
+      "revision": 2,
+      "source": "fixture",
+      "persistedReadVerified": true,
+      "matchedCount": 6,
+      "directSwapCount": 2,
+      "availableMemberIds": [
+        "maya",
+        "leo",
+        "noor",
+        "jules",
+        "iris",
+        "sam"
+      ],
+      "availableMembers": [
+        "Maya",
+        "Leo",
+        "Noor",
+        "Jules",
+        "Iris",
+        "Sam"
+      ],
+      "matchedMemberIds": [
+        "iris",
+        "jules",
+        "leo",
+        "maya",
+        "noor",
+        "sam"
+      ],
+      "matchedMembers": [
+        "Iris",
+        "Jules",
+        "Leo",
+        "Maya",
+        "Noor",
+        "Sam"
+      ],
+      "unmatchedMemberIds": [],
+      "unmatchedMembers": [],
+      "approvalCount": 0,
+      "approvedMemberIds": [],
+      "approvedMembers": [],
+      "approvalsSimulated": true,
+      "cycles": [
+        {
+          "memberIds": [
+            "iris",
+            "sam"
+          ],
+          "members": [
+            "Iris",
+            "Sam"
+          ],
+          "size": 2,
+          "fullyApproved": false,
+          "approvedMemberIds": [],
+          "approvedMembers": [],
+          "trades": [
+            {
+              "giverId": "iris",
+              "giver": "Iris",
+              "recipientId": "sam",
+              "recipient": "Sam",
+              "bookId": "book-iris",
+              "book": "Braiding Sweetgrass",
+              "author": "Robin Wall Kimmerer",
+              "recipientRank": 1,
+              "source": "fixture"
+            },
+            {
+              "giverId": "sam",
+              "giver": "Sam",
+              "recipientId": "iris",
+              "recipient": "Iris",
+              "bookId": "book-sam",
+              "book": "The Dispossessed",
+              "author": "Ursula K. Le Guin",
+              "recipientRank": 1,
+              "source": "fixture"
+            }
+          ]
+        },
+        {
+          "memberIds": [
+            "jules",
+            "leo",
+            "maya",
+            "noor"
+          ],
+          "members": [
+            "Jules",
+            "Leo",
+            "Maya",
+            "Noor"
+          ],
+          "size": 4,
+          "fullyApproved": false,
+          "approvedMemberIds": [],
+          "approvedMembers": [],
+          "trades": [
+            {
+              "giverId": "jules",
+              "giver": "Jules",
+              "recipientId": "noor",
+              "recipient": "Noor",
+              "bookId": "book-jules",
+              "book": "A Psalm for the Wild-Built",
+              "author": "Becky Chambers",
+              "recipientRank": 2,
+              "source": "fixture"
+            },
+            {
+              "giverId": "noor",
+              "giver": "Noor",
+              "recipientId": "leo",
+              "recipient": "Leo",
+              "bookId": "book-noor",
+              "book": "Piranesi",
+              "author": "Susanna Clarke",
+              "recipientRank": 1,
+              "source": "fixture"
+            },
+            {
+              "giverId": "leo",
+              "giver": "Leo",
+              "recipientId": "maya",
+              "recipient": "Maya",
+              "bookId": "book-leo",
+              "book": "The Overstory",
+              "author": "Richard Powers",
+              "recipientRank": 1,
+              "source": "fixture"
+            },
+            {
+              "giverId": "maya",
+              "giver": "Maya",
+              "recipientId": "jules",
+              "recipient": "Jules",
+              "bookId": "book-maya",
+              "book": "The Left Hand of Darkness",
+              "author": "Ursula K. Le Guin",
+              "recipientRank": 1,
+              "source": "fixture"
+            }
+          ]
+        }
+      ],
+      "question": null
+    },
+    {
+      "id": "all_approved",
+      "label": "All six fictional readers have simulated exact approvals",
+      "observedAt": "2026-10-31T01:15:36.075Z",
+      "revision": 8,
+      "source": "fixture",
+      "persistedReadVerified": true,
+      "matchedCount": 6,
+      "directSwapCount": 2,
+      "availableMemberIds": [
+        "maya",
+        "leo",
+        "noor",
+        "jules",
+        "iris",
+        "sam"
+      ],
+      "availableMembers": [
+        "Maya",
+        "Leo",
+        "Noor",
+        "Jules",
+        "Iris",
+        "Sam"
+      ],
+      "matchedMemberIds": [
+        "iris",
+        "jules",
+        "leo",
+        "maya",
+        "noor",
+        "sam"
+      ],
+      "matchedMembers": [
+        "Iris",
+        "Jules",
+        "Leo",
+        "Maya",
+        "Noor",
+        "Sam"
+      ],
+      "unmatchedMemberIds": [],
+      "unmatchedMembers": [],
+      "approvalCount": 6,
+      "approvedMemberIds": [
+        "iris",
+        "sam",
+        "jules",
+        "leo",
+        "maya",
+        "noor"
+      ],
+      "approvedMembers": [
+        "Iris",
+        "Sam",
+        "Jules",
+        "Leo",
+        "Maya",
+        "Noor"
+      ],
+      "approvalsSimulated": true,
+      "cycles": [
+        {
+          "memberIds": [
+            "iris",
+            "sam"
+          ],
+          "members": [
+            "Iris",
+            "Sam"
+          ],
+          "size": 2,
+          "fullyApproved": true,
+          "approvedMemberIds": [
+            "iris",
+            "sam"
+          ],
+          "approvedMembers": [
+            "Iris",
+            "Sam"
+          ],
+          "trades": [
+            {
+              "giverId": "iris",
+              "giver": "Iris",
+              "recipientId": "sam",
+              "recipient": "Sam",
+              "bookId": "book-iris",
+              "book": "Braiding Sweetgrass",
+              "author": "Robin Wall Kimmerer",
+              "recipientRank": 1,
+              "source": "fixture"
+            },
+            {
+              "giverId": "sam",
+              "giver": "Sam",
+              "recipientId": "iris",
+              "recipient": "Iris",
+              "bookId": "book-sam",
+              "book": "The Dispossessed",
+              "author": "Ursula K. Le Guin",
+              "recipientRank": 1,
+              "source": "fixture"
+            }
+          ]
+        },
+        {
+          "memberIds": [
+            "jules",
+            "leo",
+            "maya",
+            "noor"
+          ],
+          "members": [
+            "Jules",
+            "Leo",
+            "Maya",
+            "Noor"
+          ],
+          "size": 4,
+          "fullyApproved": true,
+          "approvedMemberIds": [
+            "jules",
+            "leo",
+            "maya",
+            "noor"
+          ],
+          "approvedMembers": [
+            "Jules",
+            "Leo",
+            "Maya",
+            "Noor"
+          ],
+          "trades": [
+            {
+              "giverId": "jules",
+              "giver": "Jules",
+              "recipientId": "noor",
+              "recipient": "Noor",
+              "bookId": "book-jules",
+              "book": "A Psalm for the Wild-Built",
+              "author": "Becky Chambers",
+              "recipientRank": 2,
+              "source": "fixture"
+            },
+            {
+              "giverId": "noor",
+              "giver": "Noor",
+              "recipientId": "leo",
+              "recipient": "Leo",
+              "bookId": "book-noor",
+              "book": "Piranesi",
+              "author": "Susanna Clarke",
+              "recipientRank": 1,
+              "source": "fixture"
+            },
+            {
+              "giverId": "leo",
+              "giver": "Leo",
+              "recipientId": "maya",
+              "recipient": "Maya",
+              "bookId": "book-leo",
+              "book": "The Overstory",
+              "author": "Richard Powers",
+              "recipientRank": 1,
+              "source": "fixture"
+            },
+            {
+              "giverId": "maya",
+              "giver": "Maya",
+              "recipientId": "jules",
+              "recipient": "Jules",
+              "bookId": "book-maya",
+              "book": "The Left Hand of Darkness",
+              "author": "Ursula K. Le Guin",
+              "recipientRank": 1,
+              "source": "fixture"
+            }
+          ]
+        }
+      ],
+      "question": null
+    },
+    {
+      "id": "noor_withdraws",
+      "label": "Noor steps out; Iris and Sam keep their approved pair",
+      "observedAt": "2026-10-31T01:15:36.655Z",
+      "revision": 9,
+      "source": "fixture",
+      "persistedReadVerified": true,
+      "matchedCount": 2,
+      "directSwapCount": 2,
+      "availableMemberIds": [
+        "maya",
+        "leo",
+        "jules",
+        "iris",
+        "sam"
+      ],
+      "availableMembers": [
+        "Maya",
+        "Leo",
+        "Jules",
+        "Iris",
+        "Sam"
+      ],
+      "matchedMemberIds": [
+        "iris",
+        "sam"
+      ],
+      "matchedMembers": [
+        "Iris",
+        "Sam"
+      ],
+      "unmatchedMemberIds": [
+        "jules",
+        "leo",
+        "maya"
+      ],
+      "unmatchedMembers": [
+        "Jules",
+        "Leo",
+        "Maya"
+      ],
+      "approvalCount": 2,
+      "approvedMemberIds": [
+        "iris",
+        "sam"
+      ],
+      "approvedMembers": [
+        "Iris",
+        "Sam"
+      ],
+      "approvalsSimulated": true,
+      "cycles": [
+        {
+          "memberIds": [
+            "iris",
+            "sam"
+          ],
+          "members": [
+            "Iris",
+            "Sam"
+          ],
+          "size": 2,
+          "fullyApproved": true,
+          "approvedMemberIds": [
+            "iris",
+            "sam"
+          ],
+          "approvedMembers": [
+            "Iris",
+            "Sam"
+          ],
+          "trades": [
+            {
+              "giverId": "iris",
+              "giver": "Iris",
+              "recipientId": "sam",
+              "recipient": "Sam",
+              "bookId": "book-iris",
+              "book": "Braiding Sweetgrass",
+              "author": "Robin Wall Kimmerer",
+              "recipientRank": 1,
+              "source": "fixture"
+            },
+            {
+              "giverId": "sam",
+              "giver": "Sam",
+              "recipientId": "iris",
+              "recipient": "Iris",
+              "bookId": "book-sam",
+              "book": "The Dispossessed",
+              "author": "Ursula K. Le Guin",
+              "recipientRank": 1,
+              "source": "fixture"
+            }
+          ]
+        }
+      ],
+      "question": {
+        "memberId": "leo",
+        "member": "Leo",
+        "bookId": "book-jules",
+        "book": "A Psalm for the Wild-Built",
+        "offeredBy": "Jules",
+        "rank": 2,
+        "connectsMembers": [
+          "Jules",
+          "Leo",
+          "Maya"
+        ],
+        "reason": "If you want to read this book, a 3-person circle becomes possible. Everyone still approves their exact trade.",
+        "source": "fixture"
+      }
+    },
+    {
+      "id": "leo_repairs",
+      "label": "Leo's simulated yes proposes a new three-person circle",
+      "observedAt": "2026-10-31T01:15:37.434Z",
+      "revision": 10,
+      "source": "fixture",
+      "persistedReadVerified": true,
+      "matchedCount": 5,
+      "directSwapCount": 2,
+      "availableMemberIds": [
+        "maya",
+        "leo",
+        "jules",
+        "iris",
+        "sam"
+      ],
+      "availableMembers": [
+        "Maya",
+        "Leo",
+        "Jules",
+        "Iris",
+        "Sam"
+      ],
+      "matchedMemberIds": [
+        "iris",
+        "jules",
+        "leo",
+        "maya",
+        "sam"
+      ],
+      "matchedMembers": [
+        "Iris",
+        "Jules",
+        "Leo",
+        "Maya",
+        "Sam"
+      ],
+      "unmatchedMemberIds": [],
+      "unmatchedMembers": [],
+      "approvalCount": 2,
+      "approvedMemberIds": [
+        "iris",
+        "sam"
+      ],
+      "approvedMembers": [
+        "Iris",
+        "Sam"
+      ],
+      "approvalsSimulated": true,
+      "cycles": [
+        {
+          "memberIds": [
+            "iris",
+            "sam"
+          ],
+          "members": [
+            "Iris",
+            "Sam"
+          ],
+          "size": 2,
+          "fullyApproved": true,
+          "approvedMemberIds": [
+            "iris",
+            "sam"
+          ],
+          "approvedMembers": [
+            "Iris",
+            "Sam"
+          ],
+          "trades": [
+            {
+              "giverId": "iris",
+              "giver": "Iris",
+              "recipientId": "sam",
+              "recipient": "Sam",
+              "bookId": "book-iris",
+              "book": "Braiding Sweetgrass",
+              "author": "Robin Wall Kimmerer",
+              "recipientRank": 1,
+              "source": "fixture"
+            },
+            {
+              "giverId": "sam",
+              "giver": "Sam",
+              "recipientId": "iris",
+              "recipient": "Iris",
+              "bookId": "book-sam",
+              "book": "The Dispossessed",
+              "author": "Ursula K. Le Guin",
+              "recipientRank": 1,
+              "source": "fixture"
+            }
+          ]
+        },
+        {
+          "memberIds": [
+            "jules",
+            "leo",
+            "maya"
+          ],
+          "members": [
+            "Jules",
+            "Leo",
+            "Maya"
+          ],
+          "size": 3,
+          "fullyApproved": false,
+          "approvedMemberIds": [],
+          "approvedMembers": [],
+          "trades": [
+            {
+              "giverId": "jules",
+              "giver": "Jules",
+              "recipientId": "leo",
+              "recipient": "Leo",
+              "bookId": "book-jules",
+              "book": "A Psalm for the Wild-Built",
+              "author": "Becky Chambers",
+              "recipientRank": 2,
+              "source": "fixture"
+            },
+            {
+              "giverId": "leo",
+              "giver": "Leo",
+              "recipientId": "maya",
+              "recipient": "Maya",
+              "bookId": "book-leo",
+              "book": "The Overstory",
+              "author": "Richard Powers",
+              "recipientRank": 1,
+              "source": "fixture"
+            },
+            {
+              "giverId": "maya",
+              "giver": "Maya",
+              "recipientId": "jules",
+              "recipient": "Jules",
+              "bookId": "book-maya",
+              "book": "The Left Hand of Darkness",
+              "author": "Ursula K. Le Guin",
+              "recipientRank": 1,
+              "source": "fixture"
+            }
+          ]
+        }
+      ],
+      "question": null
+    }
+  ],
+  "approvalSequence": [
+    {
+      "memberId": "iris",
+      "member": "Iris",
+      "revision": 3,
+      "approvedAt": "2026-10-31T01:15:33.795Z",
+      "gives": "Braiding Sweetgrass",
+      "receives": "The Dispossessed",
+      "cycleMembers": [
+        "Iris",
+        "Sam"
+      ],
+      "simulated": true
+    },
+    {
+      "memberId": "sam",
+      "member": "Sam",
+      "revision": 4,
+      "approvedAt": "2026-10-31T01:15:34.150Z",
+      "gives": "The Dispossessed",
+      "receives": "Braiding Sweetgrass",
+      "cycleMembers": [
+        "Iris",
+        "Sam"
+      ],
+      "simulated": true
+    },
+    {
+      "memberId": "jules",
+      "member": "Jules",
+      "revision": 5,
+      "approvedAt": "2026-10-31T01:15:34.527Z",
+      "gives": "A Psalm for the Wild-Built",
+      "receives": "The Left Hand of Darkness",
+      "cycleMembers": [
+        "Jules",
+        "Leo",
+        "Maya",
+        "Noor"
+      ],
+      "simulated": true
+    },
+    {
+      "memberId": "leo",
+      "member": "Leo",
+      "revision": 6,
+      "approvedAt": "2026-10-31T01:15:34.870Z",
+      "gives": "The Overstory",
+      "receives": "Piranesi",
+      "cycleMembers": [
+        "Jules",
+        "Leo",
+        "Maya",
+        "Noor"
+      ],
+      "simulated": true
+    },
+    {
+      "memberId": "maya",
+      "member": "Maya",
+      "revision": 7,
+      "approvedAt": "2026-10-31T01:15:35.225Z",
+      "gives": "The Left Hand of Darkness",
+      "receives": "The Overstory",
+      "cycleMembers": [
+        "Jules",
+        "Leo",
+        "Maya",
+        "Noor"
+      ],
+      "simulated": true
+    },
+    {
+      "memberId": "noor",
+      "member": "Noor",
+      "revision": 8,
+      "approvedAt": "2026-10-31T01:15:35.598Z",
+      "gives": "Piranesi",
+      "receives": "A Psalm for the Wild-Built",
+      "cycleMembers": [
+        "Jules",
+        "Leo",
+        "Maya",
+        "Noor"
+      ],
+      "simulated": true
+    }
+  ],
+  "cleanup": {
+    "deletedAt": "2026-10-31T01:15:38.321Z",
+    "deleteStatus": 200,
+    "readAfterDeleteStatus": 404,
+    "verified": true
+  },
+  "completedAt": "2026-10-31T01:15:38.321Z"
+}

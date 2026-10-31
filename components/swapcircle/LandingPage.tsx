@@ -1,4 +1,4 @@
-import { ArrowUpRight, ArrowRight, BookOpen, Sparkles, Check, CircleHelp, Heart, Users, MoveUpRight } from "lucide-react";
+import { ArrowUpRight, ArrowRight, BookOpen, Sparkles, Check, CircleHelp, Heart, Users, MoveUpRight, Play } from "lucide-react";
 import { DemoFactory } from "@/lib/demo/DemoFactory";
 import { BookCover } from "./BookCover";
 
@@ -8,7 +8,7 @@ export function LandingPage({ onDemo, onCreate, busy, configured }: { onDemo: ()
     <main className="landing">
       <section className="hero">
         <div className="hero-copy"><span className="eyebrow"><span className="tiny-line" /> GOOD STORIES DESERVE ANOTHER READER</span><h1>Good books.<br />New people.<br /><em>Full circle.</em></h1><p>The book on your shelf could be someone's next favorite. Find it a new home, and a new read for you, with a circle of people who all say yes.</p>
-          <div className="hero-actions"><button className="button primary large" onClick={onDemo} disabled={busy}>{busy ? "Opening your circle…" : "Try a sample circle"}<ArrowUpRight size={19} /></button><button className="button plain" onClick={onCreate}>Start your own <ArrowRight size={17} /></button></div>
+          <div className="hero-actions"><button className="button primary large" onClick={onDemo} disabled={busy}>{busy ? "Opening your circle…" : "Try a sample circle"}<ArrowUpRight size={19} /></button><a className="button secondary" href="/walkthrough"><Play size={15} aria-hidden="true" /> Watch the walkthrough</a><button className="button plain" onClick={onCreate}>Start your own <ArrowRight size={17} /></button></div>
           <div className="hero-footnote"><div className="avatar-stack">{readers.slice(0, 4).map((reader) => <span key={reader.id} style={{ background: reader.color }}>{reader.name[0]}</span>)}</div><p>One book in. One book out.<br /><strong>Every reader has a say.</strong></p></div>
         </div>
         <div className="hero-art" aria-label="Illustration of a three-person book exchange">

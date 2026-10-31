@@ -1,0 +1,39 @@
+{
+  "name": "swapcircle-walkthrough",
+  "version": "1.0.0",
+  "description": "Illustrated walkthrough backed by captured SwapCircle sample results",
+  "repository": {},
+  "license": "MIT",
+  "engines": {
+    "node": "^20.19.0 || ^22.13.0 || >=24"
+  },
+  "private": true,
+  "dependencies": {
+    "@remotion/captions": "4.0.539",
+    "@remotion/cli": "4.0.539",
+    "@remotion/media": "4.0.539",
+    "react": "19.2.3",
+    "react-dom": "19.2.3",
+    "remotion": "4.0.539"
+  },
+  "devDependencies": {
+    "@remotion/eslint-config-flat": "4.0.539",
+    "@types/react": "19.2.7",
+    "@types/web": "0.0.166",
+    "eslint": "10.12.0",
+    "prettier": "3.8.1",
+    "typescript": "5.9.3"
+  },
+  "scripts": {
+    "dev": "remotion studio",
+    "build": "remotion bundle",
+    "upgrade": "remotion upgrade",
+    "lint": "eslint src && tsc",
+    "typecheck": "tsc --noEmit",
+    "narrate": "node scripts/generate-narration.mjs && node scripts/build-timeline.mjs",
+    "render": "remotion render src/index.ts SwapCircle ../public/swapcircle-walkthrough.mp4 --codec=h264 --crf=22 --audio-bitrate=128k --concurrency=4"
+  },
+  "allowScripts": {
+    "esbuild": false
+  }
+}

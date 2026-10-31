@@ -2,17 +2,17 @@
 
 You want a neighbor's book. They want someone else's. A direct swap stops there, even when a circle of readers could each leave with a book they chose.
 
-SwapCircle helps a small group discover those possibilities and agree on the exchange. Each reader offers one physical book and adds a few favorite films, artists or books. Qloo ranks the other books on the table. Readers choose what they would read, the agent finds exchange circles, and everyone approves the exact book they will give and receive.
+SwapCircle helps a small group discover those possibilities and agree on the exchange. Each reader offers one physical book and adds a few favorite films, artists or books. The implemented Qloo integration is designed to rank the other books on the table; genuine provider access remains unverified. Readers choose what they would read, the agent finds exchange circles, and everyone approves the exact book they will give and receive.
 
 **Build status, October 30, 2026:** TypeScript checks, 88 automated tests and the production build passed. The HTTP/D1 smoke passed 107 assertions on each target: the development server, the local built Worker and the hosted app with Cloudflare D1. The app and MIT-licensed repository are public. The full 107-assertion hosted smoke also passed without sign-in. Live Qloo verification is pending an issued key. The sample uses authored rankings and simulated choices. It is not a recorded Qloo run.
 
-[Hosted app](https://swapcircle-books.abhinav-0905.chatgpt.site) · [Source](https://github.com/Abhinav0905/swapcircle)
+[Hosted app](https://swapcircle-books.abhinav-0905.chatgpt.site) · [Narrated walkthrough](https://swapcircle-books.abhinav-0905.chatgpt.site/walkthrough) · [Source](https://github.com/Abhinav0905/swapcircle)
 
 ![SwapCircle cover graphic: Good books, full circle.](docs/assets/swapcircle-cover.png)
 
 ## Try the sample
 
-Start the app locally and choose **Try a sample circle**. The six-reader story moves through **2 → 6 → 2 → 5 matched readers**:
+Open the public app or run it locally, then choose **Try a sample circle**. The six-reader story moves through **2 → 6 → 2 → 5 matched readers**:
 
 1. Iris and Sam can swap. Four other readers have not closed a circle.
 2. Noor reviews one suggested book and chooses **I'd read this**. Six readers now have a proposed exchange, while direct swaps still cover two.
@@ -23,9 +23,11 @@ Follow the [exact walkthrough](docs/DEMO.md). These counts prove behavior on an 
 
 ## Where Qloo fits
 
-Qloo's job comes before the want list. A reader might recognize none of the available books but know the films and music they love. Typed search resolves those favorites, then a single Insights request ranks only the other available books for that reader.
+Qloo's intended role comes before the want list. A reader might recognize none of the available books but know the films and music they love. With valid access and successful responses, typed search would resolve those favorites, then a single Insights request would rank only the other available books for that reader.
 
 The agent uses that evidence to suggest a useful unanswered reading question. A positive answer can make a new circle possible. The reader can pass.
+
+The [2-minute illustrated video](https://swapcircle-books.abhinav-0905.chatgpt.site/walkthrough) uses captured responses from the public sample, synthetic narration and English captions. It is not a screen recording or a live Qloo run. Its [Remotion source and reproduction instructions](video/README.md) are included in this repository.
 
 Taste evidence, reading choice and exchange approval are separate records. An affinity score cannot grant permission. Missing Qloo results stay unknown, raw scores are not compared across readers, and a live error never becomes a sample response. The current provider does not turn undocumented explainability fields into personal reasons.
 

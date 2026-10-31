@@ -1,0 +1,196 @@
+1
+00:00:00,300 --> 00:00:04,227
+A book swap sounds simple: bring a book, find one you want.
+
+2
+00:00:04,227 --> 00:00:06,814
+Then you discover its owner doesn't want yours.
+
+3
+00:00:06,814 --> 00:00:09,313
+A useful trade might need more than two people.
+
+4
+00:00:10,267 --> 00:00:12,881
+We built SwapCircle for that missing connection.
+
+5
+00:00:12,881 --> 00:00:16,958
+We requested a Qloo API key, but it hadn't arrived when we made
+
+6
+00:00:16,958 --> 00:00:17,585
+this video.
+
+7
+00:00:17,585 --> 00:00:21,231
+This is an illustrated walkthrough with authored rankings and
+
+8
+00:00:21,231 --> 00:00:22,041
+simulated responses.
+
+9
+00:00:23,000 --> 00:00:25,426
+Six fictional readers bring six books.
+
+10
+00:00:25,426 --> 00:00:29,599
+Iris and Sam already want each other's, so two people have an
+
+11
+00:00:29,599 --> 00:00:29,947
+exchange.
+
+12
+00:00:29,947 --> 00:00:31,384
+The other four are waiting.
+
+13
+00:00:31,384 --> 00:00:33,500
+Nobody has to take an unwanted book.
+
+14
+00:00:34,467 --> 00:00:38,381
+The agent asks Noor about Jules's book, A Psalm for the
+
+15
+00:00:38,381 --> 00:00:38,737
+Wild-Built.
+
+16
+00:00:38,737 --> 00:00:40,981
+In this sample, she says yes.
+
+17
+00:00:40,981 --> 00:00:43,103
+That closes a four-person circle.
+
+18
+00:00:43,103 --> 00:00:47,460
+Alongside Iris and Sam, six readers now have proposed exchanges.
+
+19
+00:00:48,433 --> 00:00:50,491
+Wanting a book isn't approving a trade.
+
+20
+00:00:50,491 --> 00:00:53,481
+Each reader checks the exact book they'll give and receive.
+
+21
+00:00:53,481 --> 00:00:55,678
+We simulate all six approvals here.
+
+22
+00:00:55,678 --> 00:00:58,218
+The plan can now produce handoff cards.
+
+23
+00:00:59,200 --> 00:01:00,419
+Then Noor steps out.
+
+24
+00:01:00,419 --> 00:01:01,749
+Her book leaves the table.
+
+25
+00:01:01,749 --> 00:01:05,346
+The affected circle disappears, and its approvals clear.
+
+26
+00:01:05,346 --> 00:01:08,798
+Iris and Sam keep their unchanged, approved swap.
+
+27
+00:01:08,798 --> 00:01:09,903
+We're back to two.
+
+28
+00:01:10,867 --> 00:01:13,651
+The agent asks Leo whether he'd read Jules's book.
+
+29
+00:01:13,651 --> 00:01:16,750
+His sample answer closes a new three-person circle.
+
+30
+00:01:16,750 --> 00:01:18,756
+Five readers now have proposals.
+
+31
+00:01:18,756 --> 00:01:20,983
+The changed circle needs fresh approval.
+
+32
+00:01:20,983 --> 00:01:23,902
+Earlier approval cannot authorize a different trade.
+
+33
+00:01:24,867 --> 00:01:28,714
+With a valid key, the implemented Qloo search would resolve
+
+34
+00:01:28,714 --> 00:01:31,022
+readers' favorite films, artists and books.
+
+35
+00:01:31,022 --> 00:01:34,139
+Insights would rank only the other available books for each
+
+36
+00:01:34,139 --> 00:01:34,450
+reader.
+
+37
+00:01:34,450 --> 00:01:37,083
+That evidence would guide the next reading question.
+
+38
+00:01:37,083 --> 00:01:39,919
+Real results could produce fewer exchanges.
+
+39
+00:01:40,900 --> 00:01:43,260
+Recommendations never approve trades.
+
+40
+00:01:43,260 --> 00:01:47,204
+Unknown stays unknown, and failed live requests never substitute
+
+41
+00:01:47,204 --> 00:01:48,081
+sample data.
+
+42
+00:01:48,081 --> 00:01:52,464
+Eighty-eight automated tests and 107 checks against the public app
+
+43
+00:01:52,464 --> 00:01:52,902
+passed.
+
+44
+00:01:52,902 --> 00:01:55,883
+Those checks used authored data, not live Qloo.
+
+45
+00:01:56,833 --> 00:02:00,686
+Try the public sample and inspect the MIT-licensed source.
+
+46
+00:02:00,686 --> 00:02:03,203
+The exchange workflow is available today.
+
+47
+00:02:03,203 --> 00:02:05,574
+Live Qloo verification remains pending.
+
+48
+00:02:05,574 --> 00:02:06,273
+Your books.
+
+49
+00:02:06,273 --> 00:02:07,077
+Your choice.
+

@@ -1,0 +1,3 @@
+import {Frame, Heading, Eyebrow} from '../Frame';
+import {theme as t} from '../theme';
+export const Closing = () => <Frame chapter="Try it yourself" dark><Eyebrow>Public sample · MIT source</Eyebrow><Heading size={91}>Your books.<br/><em>Your choice.</em></Heading><div style={{marginTop: 35, fontSize: 24, lineHeight: 1.8}}><div>swapcircle-books.abhinav-0905.chatgpt.site</div><div style={{color: '#e6bf7c'}}>github.com/Abhinav0905/swapcircle</div></div><div style={{marginTop: 27, paddingTop: 20, borderTop: '1px solid #ffffff35', color: t.paper, fontSize: 19}}>Live Qloo verification pending · Illustrated walkthrough · Synthetic narration</div></Frame>;

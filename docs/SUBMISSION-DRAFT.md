@@ -16,9 +16,13 @@ Target the existing project **1519439**, reported in this build session as **Unt
 
 **Source URL:** https://github.com/Abhinav0905/swapcircle (public; anonymous access verified).
 
-**Video:** Optional under the current event requirements. None supplied by this draft.
+**Walkthrough page:** https://swapcircle-books.abhinav-0905.chatgpt.site/walkthrough
+
+**Video asset:** https://swapcircle-books.abhinav-0905.chatgpt.site/swapcircle-walkthrough.mp4, with English captions at `/swapcircle-walkthrough.vtt`. This is an illustrated presentation of the sample workflow, not a screen recording. The page and media are part of the current publication update; final hosted playback verification is recorded separately in `docs/VERIFICATION.md`. Video is optional under the event requirements. Devpost's dedicated video field requires a YouTube or Vimeo URL, so this hosted walkthrough belongs in the project links unless such a URL is separately published.
 
 ## Project story
+
+**Demo status:** The published app runs the exchange, approval and repair workflow with an explicitly labeled sample. The readers are fictional, the rankings are authored and their choices and approvals are simulated. The server-side Qloo integration is implemented and tested with synthetic provider responses. We requested access, but no API key was available, so genuine Qloo search and ranking remain unverified.
 
 ### Inspiration
 
@@ -30,7 +34,7 @@ Community book swaps gave us the audience. Existing work shaped the scope. Taste
 
 ### What it does
 
-Two to eight readers each offer one physical book and add their cultural favorites. Qloo searches resolve the identities. Its Insights API ranks only the other available books for each reader.
+The intended live flow supports two to eight readers, each with one physical book and a few cultural favorites. Once a valid server-side key is available, the implemented Qloo client is designed to resolve those identities through typed search and request Insights rankings restricted to the other available books. This provider path has not yet been verified with genuine responses.
 
 Readers mark the books they would read. The agent finds circles of two to four people, compares the result with direct swaps and asks a useful unanswered question when another choice could close a circle. Nobody's answer is inferred from a score.
 
@@ -38,7 +42,7 @@ Each reader then approves the exact book they give and receive through a separat
 
 ### Why Qloo matters
 
-Qloo supplies the cross-domain discovery before a want list exists. A favorite film or artist becomes a signal for ranking the books that these people actually offered. That evidence helps the agent choose what to ask next.
+Qloo is intended to supply discovery before a want list exists. A reader may recognize none of the available books but know the films and music they love. The integration is designed to use those favorites to rank only the books the group actually offered, then help the agent choose a useful next question. The current sample illustrates the workflow after rankings arrive; it does not establish Qloo's ranking quality.
 
 The application keeps three things separate: Qloo's suggestion, a person's reading choice and their final exchange approval. Missing provider evidence stays unknown. Raw scores are not compared across readers, and failed live calls never become sample results.
 
@@ -56,9 +60,11 @@ A separate HTTP/D1 smoke passed 107 assertions on each of three targets: the dev
 
 The sample demonstrates 2 matched readers, then 6 after Noor's reading choice, back to 2 after her withdrawal and 5 after Leo answers the repair question. These are authored data and simulated responses. They prove the workflow's behavior on that scenario, not Qloo ranking quality or real reader satisfaction.
 
+The illustrated walkthrough explains this same sequence, which was checked through the working app's HTTP endpoints. Its scenes are illustrations, not a browser recording or evidence of a live Qloo run. To test the app directly, choose **Try a sample circle**, review Noor's suggested book, approve the proposed sample circles, withdraw Noor and answer Leo's repair question. Each changed circle needs fresh approval.
+
 ### Current limits
 
-Live Qloo access has not yet been verified at this draft checkpoint. The hosted app and MIT-licensed source repository are public. Anonymous app access and all 107 hosted workflow assertions passed after release. The sample remains clearly labeled.
+Live Qloo access has not yet been verified at this draft checkpoint. The hosted app and MIT-licensed source repository are public. Anonymous app access and all 107 hosted workflow assertions passed after release. The sample remains clearly labeled. This disclosure does not establish that the hackathon's working-Qloo requirement has been met.
 
 Invitation links grant access, not verified identity. The host receives those links to distribute and could retain them. Members supply book condition, ownership and availability. The application does not ship books, take payment or confirm a physical handoff.
 
@@ -77,6 +83,7 @@ Kumar Abhinav directed the project. Codex agents assisted with research, impleme
 - Record hosted browser and D1 checks separately from local tests.
 - Recheck the test count after the final source change.
 - Keep sample counts labeled as authored behavior.
+- Verify the walkthrough page, MP4, captions and poster after the media update is published. Do not claim browser playback or visual browser checks until they have actually been performed.
 - Verify the existing Devpost project's saved fields and final submission state after any authorized update.
 
 ## Prepared graphics

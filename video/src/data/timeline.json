@@ -1,0 +1,499 @@
+{
+  "fps": 30,
+  "durationInFrames": 3888,
+  "voice": "macOS Daniel synthetic narration",
+  "scenes": [
+    {
+      "id": 1,
+      "title": "The swap that stops",
+      "headline": "You want their book. They want someone else's.",
+      "narration": "A book swap sounds simple: bring a book, find one you want. Then you discover its owner doesn't want yours. A useful trade might need more than two people.",
+      "startSeconds": 0,
+      "durationInFrames": 299,
+      "captions": [
+        {
+          "text": "A book swap sounds simple: bring a book, find one you want.",
+          "startMs": 300,
+          "endMs": 4227,
+          "timestampMs": 2264,
+          "confidence": null,
+          "pageBreakAfter": true
+        },
+        {
+          "text": "Then you discover its owner doesn't want yours.",
+          "startMs": 4227,
+          "endMs": 6814,
+          "timestampMs": 5521,
+          "confidence": null,
+          "pageBreakAfter": true
+        },
+        {
+          "text": "A useful trade might need more than two people.",
+          "startMs": 6814,
+          "endMs": 9313,
+          "timestampMs": 8063,
+          "confidence": null,
+          "pageBreakAfter": true
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "title": "Set the evidence boundary",
+      "headline": "Illustrated sample",
+      "narration": "We built SwapCircle for that missing connection. We requested a Qloo API key, but it hadn't arrived when we made this video. This is an illustrated walkthrough with authored rankings and simulated responses.",
+      "startSeconds": 9.966666666666667,
+      "durationInFrames": 382,
+      "captions": [
+        {
+          "text": "We built SwapCircle for that missing connection.",
+          "startMs": 300,
+          "endMs": 2914,
+          "timestampMs": 1607,
+          "confidence": null,
+          "pageBreakAfter": true
+        },
+        {
+          "text": "We requested a Qloo API key, but it hadn't arrived when we made",
+          "startMs": 2914,
+          "endMs": 6991,
+          "timestampMs": 4953,
+          "confidence": null,
+          "pageBreakAfter": true
+        },
+        {
+          "text": "this video.",
+          "startMs": 6991,
+          "endMs": 7619,
+          "timestampMs": 7305,
+          "confidence": null,
+          "pageBreakAfter": true
+        },
+        {
+          "text": "This is an illustrated walkthrough with authored rankings and",
+          "startMs": 7619,
+          "endMs": 11265,
+          "timestampMs": 9442,
+          "confidence": null,
+          "pageBreakAfter": true
+        },
+        {
+          "text": "simulated responses.",
+          "startMs": 11265,
+          "endMs": 12075,
+          "timestampMs": 11670,
+          "confidence": null,
+          "pageBreakAfter": true
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "title": "Start with two",
+      "headline": "2 readers matched",
+      "narration": "Six fictional readers bring six books. Iris and Sam already want each other's, so two people have an exchange. The other four are waiting. Nobody has to take an unwanted book.",
+      "startSeconds": 22.7,
+      "durationInFrames": 344,
+      "captions": [
+        {
+          "text": "Six fictional readers bring six books.",
+          "startMs": 300,
+          "endMs": 2726,
+          "timestampMs": 1513,
+          "confidence": null,
+          "pageBreakAfter": true
+        },
+        {
+          "text": "Iris and Sam already want each other's, so two people have an",
+          "startMs": 2726,
+          "endMs": 6899,
+          "timestampMs": 4813,
+          "confidence": null,
+          "pageBreakAfter": true
+        },
+        {
+          "text": "exchange.",
+          "startMs": 6899,
+          "endMs": 7247,
+          "timestampMs": 7073,
+          "confidence": null,
+          "pageBreakAfter": true
+        },
+        {
+          "text": "The other four are waiting.",
+          "startMs": 7247,
+          "endMs": 8684,
+          "timestampMs": 7966,
+          "confidence": null,
+          "pageBreakAfter": true
+        },
+        {
+          "text": "Nobody has to take an unwanted book.",
+          "startMs": 8684,
+          "endMs": 10800,
+          "timestampMs": 9742,
+          "confidence": null,
+          "pageBreakAfter": true
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "title": "One useful question",
+      "headline": "One answer. A new circle.",
+      "narration": "The agent asks Noor about Jules's book, A Psalm for the Wild-Built. In this sample, she says yes. That closes a four-person circle. Alongside Iris and Sam, six readers now have proposed exchanges.",
+      "startSeconds": 34.166666666666664,
+      "durationInFrames": 419,
+      "captions": [
+        {
+          "text": "The agent asks Noor about Jules's book, A Psalm for the",
+          "startMs": 300,
+          "endMs": 4215,
+          "timestampMs": 2257,
+          "confidence": null,
+          "pageBreakAfter": true
+        },
+        {
+          "text": "Wild-Built.",
+          "startMs": 4215,
+          "endMs": 4570,
+          "timestampMs": 4392,
+          "confidence": null,
+          "pageBreakAfter": true
+        },
+        {
+          "text": "In this sample, she says yes.",
+          "startMs": 4570,
+          "endMs": 6814,
+          "timestampMs": 5692,
+          "confidence": null,
+          "pageBreakAfter": true
+        },
+        {
+          "text": "That closes a four-person circle.",
+          "startMs": 6814,
+          "endMs": 8936,
+          "timestampMs": 7875,
+          "confidence": null,
+          "pageBreakAfter": true
+        },
+        {
+          "text": "Alongside Iris and Sam, six readers now have proposed exchanges.",
+          "startMs": 8936,
+          "endMs": 13293,
+          "timestampMs": 11115,
+          "confidence": null,
+          "pageBreakAfter": true
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "title": "Approve the exact trade",
+      "headline": "Choice is not approval.",
+      "narration": "Wanting a book isn't approving a trade. Each reader checks the exact book they'll give and receive. We simulate all six approvals here. The plan can now produce handoff cards.",
+      "startSeconds": 48.13333333333333,
+      "durationInFrames": 323,
+      "captions": [
+        {
+          "text": "Wanting a book isn't approving a trade.",
+          "startMs": 300,
+          "endMs": 2357,
+          "timestampMs": 1329,
+          "confidence": null,
+          "pageBreakAfter": true
+        },
+        {
+          "text": "Each reader checks the exact book they'll give and receive.",
+          "startMs": 2357,
+          "endMs": 5348,
+          "timestampMs": 3852,
+          "confidence": null,
+          "pageBreakAfter": true
+        },
+        {
+          "text": "We simulate all six approvals here.",
+          "startMs": 5348,
+          "endMs": 7544,
+          "timestampMs": 6446,
+          "confidence": null,
+          "pageBreakAfter": true
+        },
+        {
+          "text": "The plan can now produce handoff cards.",
+          "startMs": 7544,
+          "endMs": 10084,
+          "timestampMs": 8814,
+          "confidence": null,
+          "pageBreakAfter": true
+        }
+      ]
+    },
+    {
+      "id": 6,
+      "title": "A reader steps out",
+      "headline": "6 to 2. The unchanged pair stays.",
+      "narration": "Then Noor steps out. Her book leaves the table. The affected circle disappears, and its approvals clear. Iris and Sam keep their unchanged, approved swap. We're back to two.",
+      "startSeconds": 58.9,
+      "durationInFrames": 350,
+      "captions": [
+        {
+          "text": "Then Noor steps out.",
+          "startMs": 300,
+          "endMs": 1519,
+          "timestampMs": 910,
+          "confidence": null,
+          "pageBreakAfter": true
+        },
+        {
+          "text": "Her book leaves the table.",
+          "startMs": 1519,
+          "endMs": 2849,
+          "timestampMs": 2184,
+          "confidence": null,
+          "pageBreakAfter": true
+        },
+        {
+          "text": "The affected circle disappears, and its approvals clear.",
+          "startMs": 2849,
+          "endMs": 6446,
+          "timestampMs": 4647,
+          "confidence": null,
+          "pageBreakAfter": true
+        },
+        {
+          "text": "Iris and Sam keep their unchanged, approved swap.",
+          "startMs": 6446,
+          "endMs": 9898,
+          "timestampMs": 8172,
+          "confidence": null,
+          "pageBreakAfter": true
+        },
+        {
+          "text": "We're back to two.",
+          "startMs": 9898,
+          "endMs": 11003,
+          "timestampMs": 10451,
+          "confidence": null,
+          "pageBreakAfter": true
+        }
+      ]
+    },
+    {
+      "id": 7,
+      "title": "Repair without reusing permission",
+      "headline": "2 to 5. Fresh approval required.",
+      "narration": "The agent asks Leo whether he'd read Jules's book. His sample answer closes a new three-person circle. Five readers now have proposals. The changed circle needs fresh approval. Earlier approval cannot authorize a different trade.",
+      "startSeconds": 70.56666666666666,
+      "durationInFrames": 420,
+      "captions": [
+        {
+          "text": "The agent asks Leo whether he'd read Jules's book.",
+          "startMs": 300,
+          "endMs": 3084,
+          "timestampMs": 1692,
+          "confidence": null,
+          "pageBreakAfter": true
+        },
+        {
+          "text": "His sample answer closes a new three-person circle.",
+          "startMs": 3084,
+          "endMs": 6184,
+          "timestampMs": 4634,
+          "confidence": null,
+          "pageBreakAfter": true
+        },
+        {
+          "text": "Five readers now have proposals.",
+          "startMs": 6184,
+          "endMs": 8190,
+          "timestampMs": 7187,
+          "confidence": null,
+          "pageBreakAfter": true
+        },
+        {
+          "text": "The changed circle needs fresh approval.",
+          "startMs": 8190,
+          "endMs": 10417,
+          "timestampMs": 9303,
+          "confidence": null,
+          "pageBreakAfter": true
+        },
+        {
+          "text": "Earlier approval cannot authorize a different trade.",
+          "startMs": 10417,
+          "endMs": 13335,
+          "timestampMs": 11876,
+          "confidence": null,
+          "pageBreakAfter": true
+        }
+      ]
+    },
+    {
+      "id": 8,
+      "title": "Where Qloo would enter",
+      "headline": "Favorite films + music + books → available books",
+      "narration": "With a valid key, the implemented Qloo search would resolve readers' favorite films, artists and books. Insights would rank only the other available books for each reader. That evidence would guide the next reading question. Real results could produce fewer exchanges.",
+      "startSeconds": 84.56666666666666,
+      "durationInFrames": 481,
+      "captions": [
+        {
+          "text": "With a valid key, the implemented Qloo search would resolve",
+          "startMs": 300,
+          "endMs": 4147,
+          "timestampMs": 2224,
+          "confidence": null,
+          "pageBreakAfter": true
+        },
+        {
+          "text": "readers' favorite films, artists and books.",
+          "startMs": 4147,
+          "endMs": 6456,
+          "timestampMs": 5301,
+          "confidence": null,
+          "pageBreakAfter": true
+        },
+        {
+          "text": "Insights would rank only the other available books for each",
+          "startMs": 6456,
+          "endMs": 9572,
+          "timestampMs": 8014,
+          "confidence": null,
+          "pageBreakAfter": true
+        },
+        {
+          "text": "reader.",
+          "startMs": 9572,
+          "endMs": 9884,
+          "timestampMs": 9728,
+          "confidence": null,
+          "pageBreakAfter": true
+        },
+        {
+          "text": "That evidence would guide the next reading question.",
+          "startMs": 9884,
+          "endMs": 12517,
+          "timestampMs": 11200,
+          "confidence": null,
+          "pageBreakAfter": true
+        },
+        {
+          "text": "Real results could produce fewer exchanges.",
+          "startMs": 12517,
+          "endMs": 15352,
+          "timestampMs": 13934,
+          "confidence": null,
+          "pageBreakAfter": true
+        }
+      ]
+    },
+    {
+      "id": 9,
+      "title": "The boundaries hold",
+      "headline": "Taste suggests. People decide.",
+      "narration": "Recommendations never approve trades. Unknown stays unknown, and failed live requests never substitute sample data. Eighty-eight automated tests and 107 checks against the public app passed. Those checks used authored data, not live Qloo.",
+      "startSeconds": 100.6,
+      "durationInFrames": 478,
+      "captions": [
+        {
+          "text": "Recommendations never approve trades.",
+          "startMs": 300,
+          "endMs": 2660,
+          "timestampMs": 1480,
+          "confidence": null,
+          "pageBreakAfter": true
+        },
+        {
+          "text": "Unknown stays unknown, and failed live requests never substitute",
+          "startMs": 2660,
+          "endMs": 6604,
+          "timestampMs": 4632,
+          "confidence": null,
+          "pageBreakAfter": true
+        },
+        {
+          "text": "sample data.",
+          "startMs": 6604,
+          "endMs": 7481,
+          "timestampMs": 7043,
+          "confidence": null,
+          "pageBreakAfter": true
+        },
+        {
+          "text": "Eighty-eight automated tests and 107 checks against the public app",
+          "startMs": 7481,
+          "endMs": 11864,
+          "timestampMs": 9672,
+          "confidence": null,
+          "pageBreakAfter": true
+        },
+        {
+          "text": "passed.",
+          "startMs": 11864,
+          "endMs": 12302,
+          "timestampMs": 12083,
+          "confidence": null,
+          "pageBreakAfter": true
+        },
+        {
+          "text": "Those checks used authored data, not live Qloo.",
+          "startMs": 12302,
+          "endMs": 15283,
+          "timestampMs": 13793,
+          "confidence": null,
+          "pageBreakAfter": true
+        }
+      ]
+    },
+    {
+      "id": 10,
+      "title": "Leave a clear next step",
+      "headline": "Good books, full circle.",
+      "narration": "Try the public sample and inspect the MIT-licensed source. The exchange workflow is available today. Live Qloo verification remains pending. Your books. Your choice.",
+      "startSeconds": 116.53333333333333,
+      "durationInFrames": 392,
+      "captions": [
+        {
+          "text": "Try the public sample and inspect the MIT-licensed source.",
+          "startMs": 300,
+          "endMs": 4152,
+          "timestampMs": 2226,
+          "confidence": null,
+          "pageBreakAfter": true
+        },
+        {
+          "text": "The exchange workflow is available today.",
+          "startMs": 4152,
+          "endMs": 6670,
+          "timestampMs": 5411,
+          "confidence": null,
+          "pageBreakAfter": true
+        },
+        {
+          "text": "Live Qloo verification remains pending.",
+          "startMs": 6670,
+          "endMs": 9041,
+          "timestampMs": 7855,
+          "confidence": null,
+          "pageBreakAfter": true
+        },
+        {
+          "text": "Your books.",
+          "startMs": 9041,
+          "endMs": 9740,
+          "timestampMs": 9390,
+          "confidence": null,
+          "pageBreakAfter": true
+        },
+        {
+          "text": "Your choice.",
+          "startMs": 9740,
+          "endMs": 10543,
+          "timestampMs": 10142,
+          "confidence": null,
+          "pageBreakAfter": true
+        }
+      ]
+    }
+  ]
+}
