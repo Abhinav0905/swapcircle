@@ -96,11 +96,17 @@ async function call(path, { method = "GET", token, body, headers = {}, timeout =
 }
 
 async function ready() {
-  for (let attempt = 0; attempt < 12; attempt += 1) {
+  let consecutiveSuccesses = 0;
+  for (let attempt = 0; attempt < 15; attempt += 1) {
     try {
       const result = await call("/api/status", { timeout: 3_000 });
-      if (result.status === 200 && typeof result.data?.qlooConfigured === "boolean") return result.data;
-    } catch { /* Bounded readiness retry. */ }
+      if (result.status === 200 && typeof result.data?.qlooConfigured === "boolean") {
+        consecutiveSuccesses += 1;
+        // A fresh dev Worker can answer before its configuration settles.
+        // Observe read-only stability before any test mutations; never retry a write.
+        if (consecutiveSuccesses >= 3) return result.data;
+      } else consecutiveSuccesses = 0;
+    } catch { consecutiveSuccesses = 0; /* Bounded read-only readiness retry. */ }
     await pause(1_000);
   }
   throw new SmokeFailure("The status endpoint did not become ready within the bounded wait.");

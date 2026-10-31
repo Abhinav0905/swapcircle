@@ -71,6 +71,14 @@ Restart the local server after changing these values. The Cloudflare development
 
 Only `https://hackathon.api.qloo.com` and `https://api.qloo.com` are accepted API origins. A configured key is not proof that the provider accepts it. Confirm typed search and a complete fresh ranking with the issued credential before describing the app as live Qloo.
 
+Once the hosted app has its server-side key, run the real provider check:
+
+```sh
+node scripts/live-qloo-check.mjs https://swapcircle-books.abhinav-0905.chatgpt.site
+```
+
+This resolves three known books and three films, creates a disposable live room with synthetic readers, verifies inventory-constrained Qloo rankings and database persistence, then deletes the room. Ambiguous catalog identities stop the check. It records no reading choices or approvals. A successful run writes credential-free evidence to the ignored `outputs/qloo-live-check.json`; until that happens, live verification remains pending. The command fails clearly when Qloo is not configured.
+
 ## Code and checks
 
 React components handle the interface. Provider access, exchange rules, orchestration, authorization and persistence live in separate classes under `lib/`. Cloudflare D1 stores room snapshots and request counters. The app uses TypeScript, React, Vinext, Drizzle and Cloudflare Workers.
@@ -89,7 +97,7 @@ npm run smoke -- http://127.0.0.1:5173
 
 Both the development-server run and the built-Worker run passed 107 assertions each. They checked separate member access, a concurrent revision race, the 2 → 6 → 2 → 5 repair sequence, MCP previews and cleanup of two disposable rooms per run. Both used fixture rankings and made no live Qloo calls. Local D1 success does not establish public deployment behavior.
 
-The [GitHub Actions workflow](.github/workflows/verify.yml) runs locked installation, `verify` and a fresh local D1/built-Worker smoke on Node 22. [Run 41136954900](https://github.com/Abhinav0905/swapcircle/actions/runs/41136954900) passed. An earlier smoke attempt failed once; the diagnostic rerun passed without an application change. See the [verification record](docs/VERIFICATION.md) for the evidence boundaries.
+The [GitHub Actions workflow](.github/workflows/verify.yml) runs locked installation, `verify` and a fresh local D1/built-Worker smoke on Node 22. [Diagnostic run 41150706134](https://github.com/Abhinav0905/swapcircle/actions/runs/41150706134) passed three attempts. Two earlier local CI starts returned an intermittent failure; one was a non-JSON 503 during the first ranking action. The cause is unconfirmed. The smoke now waits for three consecutive healthy responses before writing and retains sanitized failure diagnostics. Write requests are never retried. See the [verification record](docs/VERIFICATION.md) for the evidence boundaries.
 
 - [Architecture and module responsibilities](docs/ARCHITECTURE.md)
 - [HTTP routes and MCP contract](lib/server/README.md)
