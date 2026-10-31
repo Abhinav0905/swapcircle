@@ -4,7 +4,7 @@ You want a neighbor's book. They want someone else's. A direct swap stops there,
 
 SwapCircle helps a small group discover those possibilities and agree on the exchange. Each reader offers one physical book and adds a few favorite films, artists or books. Qloo ranks the other books on the table. Readers choose what they would read, the agent finds exchange circles, and everyone approves the exact book they will give and receive.
 
-**Build status, October 30, 2026:** TypeScript checks, 78 automated tests and the production build passed. The HTTP/D1 smoke passed 107 assertions on each target: the development server, the local built Worker and the hosted app with Cloudflare D1. The app and MIT-licensed repository are public. The full 107-assertion hosted smoke also passed without sign-in. Live Qloo verification is pending an issued key. The sample uses authored rankings and simulated choices. It is not a recorded Qloo run.
+**Build status, October 30, 2026:** TypeScript checks, 88 automated tests and the production build passed. The HTTP/D1 smoke passed 107 assertions on each target: the development server, the local built Worker and the hosted app with Cloudflare D1. The app and MIT-licensed repository are public. The full 107-assertion hosted smoke also passed without sign-in. Live Qloo verification is pending an issued key. The sample uses authored rankings and simulated choices. It is not a recorded Qloo run.
 
 [Hosted app](https://swapcircle-books.abhinav-0905.chatgpt.site) · [Source](https://github.com/Abhinav0905/swapcircle)
 
@@ -87,7 +87,7 @@ React components handle the interface. Provider access, exchange rules, orchestr
 npm run verify
 ```
 
-`verify` runs TypeScript checks, the test suite and the production build. The 78-test checkpoint covers provider contracts, exchange constraints, exact approvals, revisions, access rules and HTTP/MCP behavior. The solver is checked against a separate oracle on 120 seeded graphs and repairs.
+`verify` runs TypeScript checks, the test suite and the production build. The 88-test checkpoint covers provider contracts, exchange constraints, exact approvals, revisions, access rules and HTTP/MCP behavior. The solver is checked against a separate oracle on 120 seeded graphs and repairs.
 
 With a local server running, exercise the actual HTTP routes and local D1 storage:
 
@@ -97,7 +97,7 @@ npm run smoke -- http://127.0.0.1:5173
 
 Both the development-server run and the built-Worker run passed 107 assertions each. They checked separate member access, a concurrent revision race, the 2 → 6 → 2 → 5 repair sequence, MCP previews and cleanup of two disposable rooms per run. Both used fixture rankings and made no live Qloo calls. Local D1 success does not establish public deployment behavior.
 
-The [GitHub Actions workflow](.github/workflows/verify.yml) runs locked installation, `verify` and a fresh local D1/built-Worker smoke on Node 22. [Diagnostic run 41150706134](https://github.com/Abhinav0905/swapcircle/actions/runs/41150706134) passed three attempts. Two earlier local CI starts returned an intermittent failure; one was a non-JSON 503 during the first ranking action. The cause is unconfirmed. The smoke now waits for three consecutive healthy responses before writing and retains sanitized failure diagnostics. Write requests are never retried. See the [verification record](docs/VERIFICATION.md) for the evidence boundaries.
+The [GitHub Actions workflow](.github/workflows/verify.yml) runs locked installation, `verify` and a fresh local D1/built-Worker smoke on Node 22. [Run 41153316548](https://github.com/Abhinav0905/swapcircle/actions/runs/41153316548) passed all 88 tests and 107 HTTP/D1 assertions. A separate eight-case probe verifies request-body handling after an early rejection. Write requests are never retried. See the [verification record](docs/VERIFICATION.md) for the evidence boundaries.
 
 - [Architecture and module responsibilities](docs/ARCHITECTURE.md)
 - [HTTP routes and MCP contract](lib/server/README.md)

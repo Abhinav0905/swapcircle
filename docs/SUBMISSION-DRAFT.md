@@ -50,9 +50,9 @@ The application agent follows a bounded workflow. It does not call a language mo
 
 ### What we verified
 
-At the current local checkpoint, 78 automated tests pass. The solver was compared with a separate oracle on 120 seeded graphs and their repairs. Other tests cover missing evidence, duplicate physical copies, withdrawals, stale writes, exact-circle approvals, access rules and provider failures.
+At the current local checkpoint, 88 automated tests pass. The solver was compared with a separate oracle on 120 seeded graphs and their repairs. Other tests cover missing evidence, duplicate physical copies, withdrawals, stale writes, exact-circle approvals, access rules and provider failures.
 
-A separate HTTP/D1 smoke passed 107 assertions on each of three targets: the development server, the local built production Worker and the hosted Cloudflare Worker with D1. It exercised member capabilities, concurrent writes, MCP previews and the exchange/approval/withdrawal/repair sequence. These runs used fixture rankings and made no live Qloo calls. TypeScript checks and the production build also passed. The Node 22 GitHub Actions workflow also passed its tests, build and HTTP/D1 smoke. The verification record preserves an earlier failed smoke attempt and the passing diagnostic rerun.
+A separate HTTP/D1 smoke passed 107 assertions on each of three targets: the development server, the local built production Worker and the hosted Cloudflare Worker with D1. It exercised member capabilities, concurrent writes, MCP previews and the exchange/approval/withdrawal/repair sequence. These runs used fixture rankings and made no live Qloo calls. TypeScript checks and the production build also passed. The Node 22 GitHub Actions workflow also passed its tests, build and HTTP/D1 smoke. A separate eight-case regression probe also passed after bounded request-body handling fixed a reproduced local proxy failure. The verification record includes the before-and-after evidence.
 
 The sample demonstrates 2 matched readers, then 6 after Noor's reading choice, back to 2 after her withdrawal and 5 after Leo answers the repair question. These are authored data and simulated responses. They prove the workflow's behavior on that scenario, not Qloo ranking quality or real reader satisfaction.
 

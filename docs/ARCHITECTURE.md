@@ -7,7 +7,9 @@ The app supports a room of two to eight members. Each member offers one physical
 ```mermaid
 flowchart LR
     UI[React interface] --> Client[RoomClient]
-    Client --> HTTP[ApiHandlers]
+    Client --> Body[RequestBodyBoundary]
+    Body --> HTTP[ApiHandlers]
+    Body --> MCP
     HTTP --> Service[RoomService]
     Service --> Agent[ExchangeAgent]
     Agent --> Provider[TasteProvider]
@@ -34,6 +36,7 @@ The constructor boundaries allow provider and persistence tests without network 
 | `lib/client/RoomClient.ts` | Same-origin HTTP calls with a room capability. |
 | `lib/client/AccessStore.ts` | Keeps persistent host invitations separate from each tab's active capability. |
 | `lib/client/ExchangeExport.ts` | Source-labeled proposal and handoff text without credentials. |
+| `lib/server/RequestBodyBoundary.ts` | Reads original API bodies before framework dispatch, with byte and time limits. |
 | `lib/server/ApiHandlers.ts` | HTTP input checks, response mapping and request budgets. |
 | `lib/server/HttpBoundary.ts` | Bounded JSON reads, origin checks, bearer parsing and safe errors. |
 | `lib/server/RuntimeServices.ts` | Connects Worker secrets, D1, providers and services. |
@@ -102,7 +105,7 @@ Room data remains in D1 until the host deletes the room. Deletion removes the ro
 
 Exports first read the current authorized room from the server, then generate the text from that returned revision. A failed refresh prevents the download. An export remains a dated snapshot, and a later change can invalidate it.
 
-**HTTP and agent tools.** Browser calls are restricted to the same origin. Server clients can omit the Origin header. Protected operations require an Authorization bearer token. JSON bodies are limited to 48,000 bytes. Responses use private, no-store headers and do not expose arbitrary provider error text or stack traces.
+**HTTP and agent tools.** Browser calls are restricted to the same origin. Server clients can omit the Origin header. Protected operations require an Authorization bearer token. The Worker entry reads API request bodies before the framework can reject them. `RequestBodyBoundary` limits actual bytes to 48,000 and total body-read time to five seconds, then forwards a byte-backed request with the same headers and signal. Oversize, timeout and read failures stop before dispatch. This prevents unread network input from breaking a later request in prebuilt local Workers. JSON parsing has its own size check. Responses use private, no-store headers and do not expose arbitrary provider error text or stack traces.
 
 | Endpoint | Operation |
 | --- | --- |
@@ -118,7 +121,7 @@ MCP exposes `inspect_circle`, `suggest_next_question`, `explain_match` and `plan
 
 **Verification boundary.** The exchange tests compare the solver with a separate subset-and-permutation oracle on 120 seeded graphs and their repairs. Storage tests use an in-memory repository with revision comparison to check role enforcement, stale writes, invitation hashes, deletion and invalidation. These tests establish code behavior. They do not establish a successful deployed D1 transaction, browser accessibility or live Qloo quality; those need their own recorded checks.
 
-On October 30, 2026, TypeScript checks, the full 78-test suite and the production build passed. Separate runs of `scripts/smoke.mjs` passed 107 assertions each against the development server and the built Worker, with local D1 storage. They checked a real concurrent revision race, separate capabilities and the repair sequence. Both used fixture rankings. The same 107 assertions also passed against the hosted Worker and Cloudflare D1, including an anonymous run after public release. A genuine Qloo run remains pending. See [verification status](VERIFICATION.md).
+On October 30, 2026, TypeScript checks, the full 88-test suite and the production build passed. Separate runs of `scripts/smoke.mjs` passed 107 assertions each against the development server and the built Worker, with local D1 storage. They checked a real concurrent revision race, separate capabilities and the repair sequence. Both used fixture rankings. The same 107 assertions also passed against the hosted Worker and Cloudflare D1, including an anonymous run after public release. A genuine Qloo run remains pending. See [verification status](VERIFICATION.md).
 
 Run the focused suites with:
 
