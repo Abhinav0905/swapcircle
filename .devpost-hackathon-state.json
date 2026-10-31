@@ -1,0 +1,14 @@
+{
+  "current_stage": "submit-project",
+  "rules_acknowledged": true,
+  "completed_stages": [
+    "submit-project"
+  ],
+  "submission": {
+    "status": "submitted",
+    "draft_file": "docs/SUBMISSION-DRAFT.md",
+    "confirmation_id": 1273883,
+    "confirmation_url": "https://devpost.com/software/swapcircle-f2lmq5"
+  },
+  "next_command": "hackathon-map"
+}

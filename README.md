@@ -6,7 +6,7 @@ SwapCircle helps a small group discover those possibilities and agree on the exc
 
 **Build status, October 30, 2026:** TypeScript checks, 88 automated tests and the production build passed. The HTTP/D1 smoke passed 107 assertions on each target: the development server, the local built Worker and the hosted app with Cloudflare D1. The app and MIT-licensed repository are public. The full 107-assertion hosted smoke also passed without sign-in. Live Qloo verification is pending an issued key. The sample uses authored rankings and simulated choices. It is not a recorded Qloo run.
 
-[Hosted app](https://swapcircle-books.abhinav-0905.chatgpt.site) · [Narrated walkthrough](https://swapcircle-books.abhinav-0905.chatgpt.site/walkthrough) · [Source](https://github.com/Abhinav0905/swapcircle)
+[Devpost entry](https://devpost.com/software/swapcircle-f2lmq5) · [Hosted app](https://swapcircle-books.abhinav-0905.chatgpt.site) · [Narrated walkthrough](https://swapcircle-books.abhinav-0905.chatgpt.site/walkthrough) · [Source](https://github.com/Abhinav0905/swapcircle)
 
 ![SwapCircle cover graphic: Good books, full circle.](docs/assets/swapcircle-cover.png)
 

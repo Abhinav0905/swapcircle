@@ -1,0 +1,49 @@
+{
+  "verifiedAt": "2026-10-31T01:32:34.589Z",
+  "sourceCommit": "78c46d5c26103b7c97cc2b9a2048250da52ba13a",
+  "anonymous": true,
+  "checks": [
+    {
+      "path": "/",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "bytes": 23392
+    },
+    {
+      "path": "/walkthrough",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "bytes": 29581
+    },
+    {
+      "path": "/swapcircle-walkthrough.mp4",
+      "status": 200,
+      "contentType": "video/mp4",
+      "bytes": 4220835,
+      "sha256": "01f5ecbf915e62f05771286b68ab926934b71f6c5b43aec205ef6caf99d37798",
+      "matchesLocal": true
+    },
+    {
+      "path": "/swapcircle-walkthrough.vtt",
+      "status": 200,
+      "contentType": "text/vtt",
+      "bytes": 3518
+    },
+    {
+      "path": "/walkthrough-poster.jpg",
+      "status": 200,
+      "contentType": "image/jpeg",
+      "bytes": 59037
+    },
+    {
+      "path": "/api/status",
+      "status": 200,
+      "contentType": "application/json; charset=utf-8",
+      "bytes": 24,
+      "qlooConfigured": false
+    }
+  ],
+  "rangeDelivery": "The host returns the full 200 response for a byte-range request. Video is 4.22 MB with fast-start metadata.",
+  "browserPlayback": "Not checked: browser control host unavailable",
+  "ci": "https://github.com/Abhinav0905/swapcircle/actions/runs/41155671543"
+}

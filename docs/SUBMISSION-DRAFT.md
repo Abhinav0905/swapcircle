@@ -1,8 +1,8 @@
 # SwapCircle submission draft
 
-Local preparation only. This file has not been sent to Devpost.
+Submission copy. Sent to Devpost and verified live on October 30, 2026 at 6:36 p.m. Pacific. [Public project page](https://devpost.com/software/swapcircle-f2lmq5). Receipt: `SUBMISSION-RECEIPT.json`.
 
-Target the existing project **1519439**, reported in this build session as **Untitled**. Do not create another project to use this draft. Project work began on **October 30, 2026**. The [event deadline](https://qloo.devpost.com/) is **8:45 p.m. PDT that day**.
+Existing Devpost project **1519439** is published as **SwapCircle** and entered in the Qloo Agentic Hackathon. Project work began on **October 30, 2026**. The [event deadline](https://qloo.devpost.com/) is **8:45 p.m. PDT that day**.
 
 ## Fields
 
@@ -18,7 +18,7 @@ Target the existing project **1519439**, reported in this build session as **Unt
 
 **Walkthrough page:** https://swapcircle-books.abhinav-0905.chatgpt.site/walkthrough
 
-**Video asset:** https://swapcircle-books.abhinav-0905.chatgpt.site/swapcircle-walkthrough.mp4, with English captions at `/swapcircle-walkthrough.vtt`. This is an illustrated presentation of the sample workflow, not a screen recording. The page and media are part of the current publication update; final hosted playback verification is recorded separately in `docs/VERIFICATION.md`. Video is optional under the event requirements. Devpost's dedicated video field requires a YouTube or Vimeo URL, so this hosted walkthrough belongs in the project links unless such a URL is separately published.
+**Video asset:** https://swapcircle-books.abhinav-0905.chatgpt.site/swapcircle-walkthrough.mp4, with English captions at `/swapcircle-walkthrough.vtt`. This is an illustrated presentation of the sample workflow, not a screen recording. The page, MP4, captions and poster are public. Anonymous delivery and the MP4 hash were verified; browser playback was unavailable. See `docs/VERIFICATION.md`. Video is optional under the event requirements. Devpost's dedicated video field requires a YouTube or Vimeo URL, so this hosted walkthrough belongs in the project links unless such a URL is separately published.
 
 ## Project story
 
@@ -64,7 +64,7 @@ The illustrated walkthrough explains this same sequence, which was checked throu
 
 ### Current limits
 
-Live Qloo access has not yet been verified at this draft checkpoint. The hosted app and MIT-licensed source repository are public. Anonymous app access and all 107 hosted workflow assertions passed after release. The sample remains clearly labeled. This disclosure does not establish that the hackathon's working-Qloo requirement has been met.
+Live Qloo access has not yet been verified at submission. The hosted app and MIT-licensed source repository are public. Anonymous app access and all 107 hosted workflow assertions passed after release. The sample remains clearly labeled. This disclosure does not establish that the hackathon's working-Qloo requirement has been met.
 
 Invitation links grant access, not verified identity. The host receives those links to distribute and could retain them. Members supply book condition, ownership and availability. The application does not ship books, take payment or confirm a physical handoff.
 
@@ -76,7 +76,7 @@ First, verify the complete live provider path using the organizer-issued key. Th
 
 Kumar Abhinav directed the project. Codex agents assisted with research, implementation and testing during the submission period. Project source is prepared under the MIT license. Predecessors and research sources are documented in `docs/RESEARCH.md`.
 
-## Before publishing this text
+## For later edits
 
 - Use the verified public demo and repository URLs above.
 - Update the live-provider paragraph only after a genuine typed search and full room ranking succeed.

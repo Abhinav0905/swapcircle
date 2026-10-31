@@ -10,10 +10,10 @@ Checkpoint: October 30, 2026. Local, hosted and GitHub Actions results are recor
 | Development-server HTTP/D1 smoke | 107 assertions passed | Actual local routes and D1 state, member capabilities, concurrent revision rejection, exact approvals, withdrawal, repair, MCP previews and room cleanup. |
 | Built-Worker HTTP/D1 smoke | 107 assertions passed at `http://127.0.0.1:4177` | The same workflow passes against the built production Worker and local D1. This is a local result. |
 | Hosted HTTP/D1 smoke | 107 assertions passed | Actual deployed Worker and Cloudflare D1. Passed first through the private gate, then again anonymously after public release. Fixture data only; no Qloo call. |
-| GitHub Actions | [Run 41153316548 passed](https://github.com/Abhinav0905/swapcircle/actions/runs/41153316548) on commit `de60dcb` | Node 22, locked install, 88 tests, build, fresh D1 migration and 107 HTTP assertions. |
+| GitHub Actions | [Video release run 41155671543 passed](https://github.com/Abhinav0905/swapcircle/actions/runs/41155671543) on commit `78c46d5` | Node 22, locked install, 88 tests, build, fresh D1 migration and 107 HTTP assertions. |
 | Early-rejection regression | [All eight cases passed](https://github.com/Abhinav0905/swapcircle/actions/runs/41153162651) | Each ranking request ran once and persisted revision 1. All eight disposable rooms were deleted. |
 | Public access | Verified | Anonymous homepage and GitHub repository requests returned HTTP 200. GitHub reports public visibility and MIT licensing. |
-| Illustrated walkthrough | Rendered and checked locally; hosted asset checks pending | `/walkthrough` uses native video controls, an English caption track and a text summary. The video illustrates the sample sequence; it is not a screen recording. |
+| Illustrated walkthrough | Rendered, locally decoded and anonymously served; hosted hash matches | `/walkthrough` uses native video controls, an English caption track and a text summary. The video illustrates the sample sequence; it is not a screen recording. |
 | Visual browser review of walkthrough | Not performed | Browser access was unavailable during this presentation change. Responsive CSS and semantic markup do not establish visual or playback correctness. |
 | Live Qloo | Pending | A configured key and mocked contracts do not establish provider access or ranking quality. |
 | Reader pilot or physical exchange | Not performed | No adoption, satisfaction, completed handoff or environmental benefit has been measured. |
@@ -44,7 +44,7 @@ Temporary dependency instrumentation has been removed. The optional manual probe
 
 The optional `scripts/live-qloo-check.mjs` has passed syntax checking and correctly refused to verify the unconfigured hosted app. Its real search/ranking path remains pending an issued key. A successful run uses synthetic reader inputs, removes its disposable room and writes credential-free evidence under ignored `outputs/`.
 
-The walkthrough page references `/swapcircle-walkthrough.mp4`, `/swapcircle-walkthrough.vtt` and `/walkthrough-poster.jpg`. It describes fictional readers, authored rankings and simulated decisions before the player. The illustrated 2 -> 6 -> 2 -> 5 sequence corresponds to the sample behavior checked through the application's HTTP routes. It does not measure Qloo recommendation quality, real reader satisfaction or completed physical exchanges. Media generation, final type checking/build and publication are separate checks for this presentation update; the earlier test results above must not be relabeled as verification of those assets.
+The walkthrough page references `/swapcircle-walkthrough.mp4`, `/swapcircle-walkthrough.vtt` and `/walkthrough-poster.jpg`. It describes fictional readers, authored rankings and simulated decisions before the player. The illustrated 2 -> 6 -> 2 -> 5 sequence corresponds to the sample behavior checked through the application's HTTP routes. It does not measure Qloo recommendation quality, real reader satisfaction or completed physical exchanges. The video release passed its app/video type checks, production build and GitHub CI. Anonymous requests returned 200 for the landing page, walkthrough, MP4, captions and poster. The hosted MP4 hash matches the locally decoded file. The host returns the full file for range requests; seeking and playback have not been checked in a browser. See `HOSTED-VIDEO-VERIFICATION.json`.
 
 
 ## Video release checks
@@ -52,3 +52,8 @@ The walkthrough page references `/swapcircle-walkthrough.mp4`, `/swapcircle-walk
 The final illustrated video is 129.6 seconds, 1280 × 720 at 30 fps, with H.264 video and 48 kHz AAC narration. Its 4,220,835-byte MP4 has fast-start metadata. The full file decoded without errors; the audio was non-silent and did not clip. All ten scenes were inspected, then four exchange scenes were checked again after layout fixes. Forty-nine caption cues are ordered and within the media duration. See `VIDEO-VERIFICATION.json` for the file hash and stream details. This is media validation, not a claim of browser playback or live Qloo access.
 
 The sanitized public-app capture is in `video/src/data/evidence.json`. It verifies matched counts 2, 6, 6, 2, 5 and approval counts 0, 0, 6, 2, 2. The disposable circle was deleted and returned HTTP 404 afterward.
+
+
+## Devpost submission
+
+The authorized entry was sent on October 30, 2026 at 6:36 p.m. Pacific. Devpost returned status `Submitted`, submission ID `1273883`; a separate `get_project` read confirmed `submitted_at`. The [project page](https://devpost.com/software/swapcircle-f2lmq5) contains the missing-key disclosure and hosted walkthrough link. The cover was uploaded as the project thumbnail and the authored sample diagram as gallery image 1. Both image CDN URLs returned 200 after processing. No YouTube/Vimeo embed was claimed. This confirms entry receipt, not eligibility or judging acceptance.
