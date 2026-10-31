@@ -4,9 +4,9 @@ You want a neighbor's book. They want someone else's. A direct swap stops there,
 
 SwapCircle helps a small group discover those possibilities and agree on the exchange. Each reader offers one physical book and adds a few favorite films, artists or books. Qloo ranks the other books on the table. Readers choose what they would read, the agent finds exchange circles, and everyone approves the exact book they will give and receive.
 
-**Build status, October 30, 2026:** TypeScript checks, 78 automated tests and the production build passed. The HTTP/D1 smoke passed 107 assertions on each target: the development server, the local built Worker and the hosted app with Cloudflare D1. The app and repository are private while public release approval is pending. Live Qloo verification is pending an issued key. The sample uses authored rankings and simulated choices. It is not a recorded Qloo run.
+**Build status, October 30, 2026:** TypeScript checks, 78 automated tests and the production build passed. The HTTP/D1 smoke passed 107 assertions on each target: the development server, the local built Worker and the hosted app with Cloudflare D1. The app and MIT-licensed repository are public. The full 107-assertion hosted smoke also passed without sign-in. Live Qloo verification is pending an issued key. The sample uses authored rankings and simulated choices. It is not a recorded Qloo run.
 
-[Hosted app](https://swapcircle-books.abhinav-0905.chatgpt.site) · [Source](https://github.com/Abhinav0905/swapcircle) (both private at this checkpoint)
+[Hosted app](https://swapcircle-books.abhinav-0905.chatgpt.site) · [Source](https://github.com/Abhinav0905/swapcircle)
 
 ![SwapCircle cover graphic: Good books, full circle.](docs/assets/swapcircle-cover.png)
 
@@ -89,7 +89,7 @@ npm run smoke -- http://127.0.0.1:5173
 
 Both the development-server run and the built-Worker run passed 107 assertions each. They checked separate member access, a concurrent revision race, the 2 → 6 → 2 → 5 repair sequence, MCP previews and cleanup of two disposable rooms per run. Both used fixture rankings and made no live Qloo calls. Local D1 success does not establish public deployment behavior.
 
-The [GitHub Actions workflow](.github/workflows/verify.yml) runs locked installation, `verify` and a fresh local D1/built-Worker smoke on Node 22. [Run 41136590663](https://github.com/Abhinav0905/swapcircle/actions/runs/41136590663) passed. An earlier smoke attempt failed once; the diagnostic rerun passed without an application change. See the [verification record](docs/VERIFICATION.md) for the evidence boundaries.
+The [GitHub Actions workflow](.github/workflows/verify.yml) runs locked installation, `verify` and a fresh local D1/built-Worker smoke on Node 22. [Run 41136954900](https://github.com/Abhinav0905/swapcircle/actions/runs/41136954900) passed. An earlier smoke attempt failed once; the diagnostic rerun passed without an application change. See the [verification record](docs/VERIFICATION.md) for the evidence boundaries.
 
 - [Architecture and module responsibilities](docs/ARCHITECTURE.md)
 - [HTTP routes and MCP contract](lib/server/README.md)

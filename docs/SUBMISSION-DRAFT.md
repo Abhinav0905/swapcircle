@@ -12,9 +12,9 @@ Target the existing project **1519439**, reported in this build session as **Unt
 
 **Built with:** TypeScript, React, Vinext, Qloo, Cloudflare Workers, Cloudflare D1, Drizzle, Model Context Protocol
 
-**Demo URL:** https://swapcircle-books.abhinav-0905.chatgpt.site (private; public release approval pending).
+**Demo URL:** https://swapcircle-books.abhinav-0905.chatgpt.site (public; anonymous access verified).
 
-**Source URL:** https://github.com/Abhinav0905/swapcircle (private; public release approval pending).
+**Source URL:** https://github.com/Abhinav0905/swapcircle (public; anonymous access verified).
 
 **Video:** Optional under the current event requirements. None supplied by this draft.
 
@@ -58,7 +58,7 @@ The sample demonstrates 2 matched readers, then 6 after Noor's reading choice, b
 
 ### Current limits
 
-Live Qloo access has not yet been verified at this draft checkpoint. The hosted app and source repository are private; anonymous judge access must be enabled and checked before submission. The sample remains clearly labeled.
+Live Qloo access has not yet been verified at this draft checkpoint. The hosted app and MIT-licensed source repository are public. Anonymous app access and all 107 hosted workflow assertions passed after release. The sample remains clearly labeled.
 
 Invitation links grant access, not verified identity. The host receives those links to distribute and could retain them. Members supply book condition, ownership and availability. The application does not ship books, take payment or confirm a physical handoff.
 
@@ -72,7 +72,7 @@ Kumar Abhinav directed the project. Codex agents assisted with research, impleme
 
 ## Before publishing this text
 
-- Replace pending links with the verified public demo and repository URLs.
+- Use the verified public demo and repository URLs above.
 - Update the live-provider paragraph only after a genuine typed search and full room ranking succeed.
 - Record hosted browser and D1 checks separately from local tests.
 - Recheck the test count after the final source change.
