@@ -21,7 +21,7 @@ function check(condition, description) {
 function sorted(values) { return [...values].sort().join(","); }
 
 // Match the installed Wrangler proxy's fixed response, never print its body.
-const workerRestartResponse = "Your worker restarted mid-request. Please try sending the request again. Only GET or HEAD requests are retried automatically.";
+const wranglerProxyResponse = "Your worker restarted mid-request. Please try sending the request again. Only GET or HEAD requests are retried automatically.";
 function responseDetails(response) {
   const code = /^[a-z_]{1,48}$/.test(response.data?.error?.code ?? "") ? response.data.error.code : "unknown";
   return `${response.status}, ${code}, ${response.contentType}, ${response.classification}`;
@@ -51,8 +51,6 @@ function summarizeWorkerLog(raw) {
     for (const [match, label] of lifecycle) {
       if (line.includes(match)) summary.push(`line ${index + 1}: worker ${label}`);
     }
-    const proxy = /SWAPCIRCLE_PROXY_FAILURE (unresolved-response|request-context|request-body|connection-lost|canceled|resource-limit|timeout|fetch-failed|other) (Error|TypeError|AbortError|TimeoutError|DOMException|OtherError) same-upstream=(true|false)\b/.exec(line);
-    if (proxy) summary.push(`line ${index + 1}: proxy ${proxy[1]} ${proxy[2]} same-upstream=${proxy[3]}`);
     const request = /\b(GET|HEAD|POST|DELETE|OPTIONS) (\/[^\s]*) ([1-5]\d{2})\b/.exec(line);
     if (request) {
       const path = request[2].split(/[?#]/, 1)[0];
@@ -94,7 +92,7 @@ async function call(path, { method = "GET", token, body, headers = {}, timeout =
     catch {
       // The framework may reject foreign origins before our JSON route runs.
       // Do not log that body or mistake a plain-text rejection for a success.
-      classification = response.status === 503 && response.headers.get("retry-after") === "0" && text === workerRestartResponse
+      classification = response.status === 503 && response.headers.get("retry-after") === "0" && text === wranglerProxyResponse
         ? "wrangler-proxy-503" : "non-json";
       if (response.ok) throw new SmokeFailure("A successful endpoint returned a non-JSON response.");
     }
@@ -109,8 +107,8 @@ async function ready() {
       const result = await call("/api/status", { timeout: 3_000 });
       if (result.status === 200 && typeof result.data?.qlooConfigured === "boolean") {
         consecutiveSuccesses += 1;
-        // A fresh dev Worker can answer before its configuration settles.
-        // Observe read-only stability before any test mutations; never retry a write.
+        // Check read-only readiness before test mutations. A successful health
+        // response does not prove an action will succeed; never retry a write.
         if (consecutiveSuccesses >= 3) return result.data;
       } else consecutiveSuccesses = 0;
     } catch { consecutiveSuccesses = 0; /* Bounded read-only readiness retry. */ }

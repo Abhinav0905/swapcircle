@@ -43,33 +43,6 @@ jobs:
         run: npm run build
       - name: Apply local D1 migration
         run: node --import ./scripts/sites-env.mjs ./node_modules/wrangler/bin/wrangler.js d1 execute DB --local --config dist/server/wrangler.json --persist-to .wrangler/state --file drizzle/0000_noisy_sabretooth.sql
-      - name: Classify local proxy failures without logging request data
-        shell: bash
-        run: |
-          node --input-type=module <<'NODE'
-          import { readFileSync, writeFileSync } from "node:fs";
-          const path = "node_modules/wrangler/wrangler-dist/ProxyWorker.js";
-          const source = readFileSync(path, "utf8");
-          const anchor = "const newUserWorkerUrl = this.proxyData && urlFromParts(this.proxyData.userWorkerUrl);";
-          if (source.split(anchor).length !== 2) throw new Error("The pinned Wrangler proxy changed; review its diagnostic hook.");
-          const diagnostic = `
-                  const categories = [
-                    [/never generate a response|unresolved promise/i, "unresolved-response"],
-                    [/different request|request context|io context/i, "request-context"],
-                    [/content.length|body.*(?:length|stream|ended)/i, "request-body"],
-                    [/network connection lost|econnreset|econnrefused|epipe|socket|disconnected/i, "connection-lost"],
-                    [/cancel|abort/i, "canceled"],
-                    [/cpu|memory limit|out of memory/i, "resource-limit"],
-                    [/timed? ?out|timeout/i, "timeout"],
-                    [/fetch failed/i, "fetch-failed"],
-                  ];
-                  const category = categories.find(([pattern]) => pattern.test(String(error?.message ?? "")))?.[1] ?? "other";
-                  const name = ["Error", "TypeError", "AbortError", "TimeoutError", "DOMException"].includes(error?.name) ? error.name : "OtherError";
-                  const sameUpstream = newUserWorkerUrl?.origin === userWorkerUrl.origin;
-                  console.error("SWAPCIRCLE_PROXY_FAILURE " + category + " " + name + " same-upstream=" + sameUpstream);
-          `;
-          writeFileSync(path, source.replace(anchor, anchor + diagnostic));
-          NODE
       - name: Smoke the built Worker
         shell: bash
         run: |
@@ -82,7 +55,7 @@ jobs:
           else
             npm run smoke -- http://127.0.0.1:8787 --worker-log=.sites-runtime/ci-worker.log
           fi
-      - name: Retain safe Worker diagnostics on failure
+      - name: Retain safe Worker diagnostics
         if: failure() || inputs.origin_probe
         uses: actions/upload-artifact@v7
         with:
