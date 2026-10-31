@@ -1,5 +1,6 @@
 #!/usr/bin/env node
 import { setTimeout as pause } from "node:timers/promises";
+import { readFile, writeFile } from "node:fs/promises";
 
 // Only disposable demo circles are created. Capabilities stay in memory and
 // never enter logs or files. This checks HTTP routes and real database state.
@@ -8,6 +9,7 @@ if (!["http:", "https:"].includes(base.protocol) || base.username || base.passwo
   throw new Error("Use an HTTP(S) site origin without credentials or query parameters.");
 }
 const origin = base.origin;
+const workerLog = process.argv.find((argument) => argument.startsWith("--worker-log="))?.slice("--worker-log=".length);
 const created = [];
 let checks = 0;
 class SmokeFailure extends Error {}
@@ -16,6 +18,53 @@ function check(condition, description) {
   checks += 1;
 }
 function sorted(values) { return [...values].sort().join(","); }
+
+// Match the installed Wrangler proxy's fixed response, never print its body.
+const workerRestartResponse = "Your worker restarted mid-request. Please try sending the request again. Only GET or HEAD requests are retried automatically.";
+function responseDetails(response) {
+  const code = /^[a-z_]{1,48}$/.test(response.data?.error?.code ?? "") ? response.data.error.code : "unknown";
+  return `${response.status}, ${code}, ${response.contentType}, ${response.classification}`;
+}
+
+/** Output only fixed lifecycle labels and bounded HTTP fields, never raw lines. */
+function summarizeWorkerLog(raw) {
+  const summary = [];
+  const lifecycle = [
+    ["Starting local server", "starting"],
+    ["Reloading local server", "reloading"],
+    ["Local server updated and ready", "reload-ready"],
+    ["Connection status updated", "connection-update"],
+    ["Ready on", "listening"],
+    ["Error reloading local server", "reload-error"],
+    ["Shutting down local server", "stopping"],
+    ["D1_ERROR", "d1-error"],
+    ["SQLITE_BUSY", "sqlite-busy"],
+  ];
+  const lines = raw.split(/\r?\n/);
+  for (const [index, rawLine] of lines.entries()) {
+    const line = rawLine.replace(/\u001b\[[0-9;]*m/g, "");
+    for (const [match, label] of lifecycle) {
+      if (line.includes(match)) summary.push(`line ${index + 1}: worker ${label}`);
+    }
+    const request = /\b(GET|HEAD|POST|DELETE|OPTIONS) (\/[^\s]*) ([1-5]\d{2})\b/.exec(line);
+    if (request) {
+      const path = request[2].split(/[?#]/, 1)[0];
+      const route = /^\/api\/rooms\/[0-9a-f-]{36}$/i.test(path) ? "/api/rooms/:id"
+        : ["/api/status", "/api/rooms", "/api/mcp", "/api/search"].includes(path) ? path : "<other-route>";
+      summary.push(`line ${index + 1}: ${request[1]} ${route} ${request[3]}`);
+    }
+  }
+  return `Safe Worker log summary (${lines.length} source lines; raw lines omitted).\n${summary.join("\n")}\n`;
+}
+
+async function captureWorkerDiagnostics() {
+  if (!workerLog) return;
+  try {
+    const summary = summarizeWorkerLog(await readFile(workerLog, "utf8"));
+    await writeFile(`${workerLog}.safe.txt`, summary, { mode: 0o600 });
+    console.error(summary.trimEnd());
+  } catch { console.error("Worker diagnostics were unavailable. No raw log data was printed."); }
+}
 
 async function call(path, { method = "GET", token, body, headers = {}, timeout = 20_000 } = {}) {
   let response;
@@ -29,15 +78,21 @@ async function call(path, { method = "GET", token, body, headers = {}, timeout =
     });
   } catch { throw new SmokeFailure("An HTTP request failed or timed out. No response data was logged."); }
   let data = null;
+  let classification = "empty";
+  const mediaType = response.headers.get("content-type")?.split(";", 1)[0].trim().toLowerCase();
+  const contentType = ["application/json", "text/plain", "text/html"].includes(mediaType) ? mediaType : mediaType ? "other-type" : "no-type";
   if (response.status !== 202 && response.status !== 204) {
-    try { data = await response.json(); }
+    const text = await response.text();
+    try { data = JSON.parse(text); classification = "json"; }
     catch {
       // The framework may reject foreign origins before our JSON route runs.
       // Do not log that body or mistake a plain-text rejection for a success.
+      classification = response.status === 503 && response.headers.get("retry-after") === "0" && text === workerRestartResponse
+        ? "wrangler-worker-restarted" : "non-json";
       if (response.ok) throw new SmokeFailure("A successful endpoint returned a non-JSON response.");
     }
   }
-  return { status: response.status, data, headers: response.headers };
+  return { status: response.status, data, headers: response.headers, contentType, classification };
 }
 
 async function ready() {
@@ -53,7 +108,7 @@ async function ready() {
 
 async function createDemo() {
   const response = await call("/api/rooms", { method: "POST", body: { mode: "demo" } });
-  check(response.status === 201, "Demo circle creation failed.");
+  check(response.status === 201, `Demo circle creation failed (${responseDetails(response)}).`);
   const value = response.data;
   check(value?.room?.mode === "demo" && value.role?.kind === "host", "Creation did not return a demo host session.");
   check(typeof value.hostToken === "string" && Object.keys(value.memberTokens ?? {}).length === 6, "Creation did not return six separate participant capabilities.");
@@ -73,8 +128,7 @@ async function read(circle, token = circle.hostToken) {
 
 async function act(circle, state, action, token = circle.hostToken) {
   const response = await call(`/api/rooms/${circle.room.id}`, { method: "POST", token, body: { revision: state.revision, action } });
-  const code = /^[a-z_]{1,48}$/.test(response.data?.error?.code ?? "") ? response.data.error.code : "unknown";
-  check(response.status === 200, `Authorized ${action.type} action failed (${response.status}, ${code}).`);
+  check(response.status === 200, `Authorized ${action.type} action failed at revision ${state.revision} after ${checks} checks (${responseDetails(response)}).`);
   check(response.data.room.revision === state.revision + 1, "A state change did not increment the revision exactly once.");
   return response.data.room;
 }
@@ -215,5 +269,6 @@ catch (error) {
     }
   }
   console.log(`Cleanup checked for ${created.length} disposable demo circles. No capabilities were written to disk.`);
+  if (failed) await captureWorkerDiagnostics();
 }
 if (failed) process.exitCode = 1;

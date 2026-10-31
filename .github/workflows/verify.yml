@@ -41,4 +41,13 @@ jobs:
           npm start -- --port 8787 > .sites-runtime/ci-worker.log 2>&1 &
           worker_pid=$!
           trap 'kill "$worker_pid" 2>/dev/null || true' EXIT
-          npm run smoke -- http://127.0.0.1:8787
+          npm run smoke -- http://127.0.0.1:8787 --worker-log=.sites-runtime/ci-worker.log
+      - name: Retain safe Worker diagnostics on failure
+        if: failure()
+        uses: actions/upload-artifact@v7
+        with:
+          name: worker-diagnostics-${{ github.run_id }}-${{ github.run_attempt }}
+          path: .sites-runtime/ci-worker.log.safe.txt
+          if-no-files-found: ignore
+          include-hidden-files: true
+          retention-days: 7
