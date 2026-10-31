@@ -95,7 +95,7 @@ async function call(path, { method = "GET", token, body, headers = {}, timeout =
       // The framework may reject foreign origins before our JSON route runs.
       // Do not log that body or mistake a plain-text rejection for a success.
       classification = response.status === 503 && response.headers.get("retry-after") === "0" && text === workerRestartResponse
-        ? "wrangler-worker-restarted" : "non-json";
+        ? "wrangler-proxy-503" : "non-json";
       if (response.ok) throw new SmokeFailure("A successful endpoint returned a non-JSON response.");
     }
   }
